@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,7 +10,43 @@
     <link href="./style.css" rel="stylesheet" type="text/css">
     <link href="#" rel="icon" type="image/png">
 </head>
-<body>
-    
+
+<body onload ="updateHTML()">
+    <main>
+        <div class="board-element" ondrop="drop('backlog')" ondragover="allowDrop(event)">
+            <div class="element-headline">
+                <div class="headline-name">backlog</div>
+                <div class="new-content" onclick="newContent()">+</div>
+            </div>
+            <div class="element-content" id="backlog"></div>
+        </div>
+        <div class="board-element" ondrop="drop('todo')" ondragover="allowDrop(event)">
+            <div class="element-headline">
+                <div class="headline-name">to do</div>
+            </div>
+            <div class="element-content" id="todo"></div>
+        </div>
+        <div class="board-element" ondrop="drop('progress')" ondragover="allowDrop(event)">
+            <div class="element-headline">
+                <div class="headline-name">in progress</div>
+            </div>
+            <div class="element-content" id="progress"></div>
+        </div>
+        <div class="board-element" ondrop="drop('testing')" ondragover="allowDrop(event)">
+            <div class="element-headline">
+                <div class="headline-name">testing</div>
+            </div>
+            <div class="element-content" id="testing"></div>
+        </div>
+        <div class="board-element" ondrop="drop('done')" ondragover="allowDrop(event)">
+            <div class="element-headline">
+                <div class="headline-name">done</div>
+            </div>
+            <div class="element-content" id="done"></div>
+        </div>
+
+
+    </main>
 </body>
+
 </html>
