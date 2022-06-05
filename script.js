@@ -86,9 +86,9 @@ function updateHTML() {
 function generateHtml(element) {
     let id = data.indexOf(element);
     return `
-    <div class="card sub-card priority${element['priority']}" draggable ="true" ondragstart="startDrag(${id})">
+    <div class="card sub-card" draggable ="true" ondragstart="startDrag(${id})">
         <div class="card-body">
-            <h5 class="card-title"> ${element['title']}</h5>
+            <h5 class="card-title priority${element['priority']}"> ${element['title']}</h5>
             <p class="card-text"> ${element['content']}</p>
             <p class="card-text"> Assigned to:${element['assigned']}</p>
             <div class="ticket-buttons">
@@ -146,9 +146,19 @@ function newContent(title, content, priority, assigned) {
         "assigned": assigned.value
     }
     data.push(newContent);
+    setBackForNewContent();
+    updateHTML();
+}
+
+/**
+ * sets back value of Modal to default.
+ * 
+ */
+function setBackForNewContent(){
     document.getElementById('changeTitle').value = ``;
     document.getElementById('changeInnerContent').value = ``;
-    updateHTML();
+    document.getElementById('changeAssigned').value = `unassigned`;
+    document.getElementById('changePriority').value = `low`;
 }
 
 /**
@@ -209,6 +219,8 @@ function editContent(title, content, priority, assigned, id) {
     data[id]['assigned'] = assigned.value;
     document.getElementById('changeTitle').value = ``;
     document.getElementById('changeInnerContent').value = ``;
+    document.getElementById('changeAssigned').value = `unassigned`;
+    document.getElementById('changePriority').value = `low`;
     updateHTML();
 
 }
