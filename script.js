@@ -69,7 +69,8 @@ function generateHtml(element) {
         <div class="card-body">
             <h5 class="card-title"> ${element['title']}</h5>
             <p class="card-text"> ${element['content']}</p>
-            <a href="#" class="btn btn-primary">edit delete</a>
+            <a href="#" class="btn btn-primary">edit</a>
+            <a href="#" class="btn btn-primary">delete</a>
         </div>
     </div>`;
 }
@@ -100,5 +101,21 @@ function allowDrop(ev) {
  */
 function drop(category) {
     data[currentDrag]['category'] = category;
+    updateHTML();
+}
+
+/**
+ * reads content from form and adds it to backlog.
+ */
+function newContent() {
+    let title = document.getElementById('newTitle').value;
+    let content = document.getElementById('newContent').value;
+    console.log(title, content);
+    let newContent = {
+        'title': title,
+        'content': content,
+        'category': 'backlog'
+    }
+    data.push(newContent);
     updateHTML();
 }
