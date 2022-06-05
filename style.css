@@ -22,7 +22,10 @@ main {
 }
 
 
-.headline-name{text-align: center;}
+.headline-name {
+    text-align: center;
+}
+
 .new-content {
     margin-top: 16px;
     margin-bottom: 16px;
