@@ -13,41 +13,38 @@
  */
 
 
-
-
-let data = [
+ let data = [
     {
-        'title': 'test1',
-        'content': 'blablabla1',
-        'category': 'backlog',
-        'timestamp': 0
+        "title": "test1",
+        "content": "blablabla1",
+        "category": "backlog",
+        "timestamp": 0
     },
     {
-        'title': 'test2',
-        'content': 'blablabla2',
-        'category': 'todo',
-        'timestamp': 0
+        "title": "test2",
+        "content": "blablabla2",
+        "category": "todo",
+        "timestamp": 0
     },
     {
-        'title': 'test3',
-        'content': 'blablabla3',
-        'category': 'progress',
-        'timestamp': 0
+        "title": "test3",
+        "content": "blablabla3",
+        "category": "progress",
+        "timestamp": 0
     },
     {
-        'title': 'test4',
-        'content': 'blablabla4',
-        'category': 'testing',
-        'timestamp': 0
+        "title": "test4",
+        "content": "blablabla4",
+        "timestamp": 0
     },
     {
-        'title': 'test5',
-        'content': 'blablabla5',
-        'category': 'done',
-        'timestamp': 0
+        "title": "test5",
+        "content": "blablabla5",
+        "category": "done",
+        "timestamp": 0
     }
-
 ];
+
 let categories = ['backlog', 'todo', 'progress', 'testing', 'done'];
 let currentDrag;
 
@@ -130,10 +127,10 @@ function drop(category) {
 function newContent(title, content) {
     let time = new Date().getTime();
     let newContent = {
-        'title': title.value,
-        'content': content.value,
-        'category': 'backlog',
-        'timestamp': time
+        "title": title.value,
+        "content": content.value,
+        "category": "backlog",
+        "timestamp": time
     }
     data.push(newContent);
     document.getElementById('changeTitle').value = ``;
