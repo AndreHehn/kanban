@@ -1,15 +1,3 @@
-/**
- * Formular für neues Element erstellen
- * 
- * Element CSS
- * 
- * Überschrift
- * 
- * Löschfunktion
- * 
- * 
- */
-
 let data = [
     {
         'title': 'test1',

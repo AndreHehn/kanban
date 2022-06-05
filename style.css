@@ -26,9 +26,16 @@ main {
     text-align: center;
 }
 
-.sub-card{margin-bottom: 4px;}
+.sub-card {
+    margin-bottom: 4px;
+}
 
 .new-content {
     margin-top: 16px;
     margin-bottom: 16px;
+}
+
+.form-resize-off{
+
+    resize: none;
 }
