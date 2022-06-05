@@ -2,27 +2,32 @@ let data = [
     {
         'title': 'test1',
         'content': 'blablabla1',
-        'category': 'backlog'
+        'category': 'backlog',
+        'timestamp': 0
     },
     {
         'title': 'test2',
         'content': 'blablabla2',
-        'category': 'todo'
+        'category': 'todo',
+        'timestamp': 0
     },
     {
         'title': 'test3',
         'content': 'blablabla3',
-        'category': 'progress'
+        'category': 'progress',
+        'timestamp': 0
     },
     {
         'title': 'test4',
         'content': 'blablabla4',
-        'category': 'testing'
+        'category': 'testing',
+        'timestamp': 0
     },
     {
         'title': 'test5',
         'content': 'blablabla5',
-        'category': 'done'
+        'category': 'done',
+        'timestamp': 0
     }
 
 ];
@@ -33,6 +38,10 @@ let currentDrag;
  * Reads the JSON-array data and renders the elements in the according div.
  */
 function updateHTML() {
+    data.sort (function(a, b){
+        return a.timestamp - b.timestamp;
+    });
+    console.log(data);
     for (let i = 0; i < categories.length; i++) {
         let category = categories[i];
         let column = data.filter(cat => cat['category'] == category);
@@ -88,7 +97,9 @@ function allowDrop(ev) {
  * @param {*} category is the id of the div in which the element is dropped.
  */
 function drop(category) {
+    let time = new Date().getTime();
     data[currentDrag]['category'] = category;
+    data[currentDrag]['timestamp'] = time;
     updateHTML();
 }
 
@@ -99,10 +110,12 @@ function drop(category) {
  * @param {*} content id of textarea
  */
 function newContent(title, content) {
+    let time = new Date().getTime();
     let newContent = {
         'title': title.value,
         'content': content.value,
-        'category': 'backlog'
+        'category': 'backlog',
+        'timestamp': time
     }
     data.push(newContent);
     document.getElementById('changeTitle').value = ``;
