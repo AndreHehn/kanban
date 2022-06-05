@@ -18,26 +18,28 @@
 
 <body onload="updateHTML()">
 
-<div class="modal fade" id="newBacklog" tabindex="-1" aria-labelledby="modaHeadline" aria-hidden="true">
+
+
+  <div class="modal fade" id="changeContent" tabindex="-1" aria-labelledby="modaHeadline" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="modaHeadline">New Backlog</h5>
+          <h5 class="modal-title" id="modaHeadline">Ticket:</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
             <div class="mb-3">
-                <label for="title" class="form-label">title:</label>
-                <input type="text" class="form-control" id="newTitle" placeholder="title">
+                <label for="changeTitle" class="form-label">title:</label>
+                <input type="text" class="form-control" id="changeTitle" placeholder="new title">
               </div>
               <div class="mb-3">
-                <label for="content" class="form-label">content:</label>
-                <textarea class="form-control form-resize-off" id="newContent" rows="3"></textarea>
+                <label for="changeContent" class="form-label">content:</label>
+                <textarea class="form-control form-resize-off" id="changeInnerContent" ></textarea>
               </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" onclick="newContent()">Save changes</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="changeButton">Save</button>
         </div>
       </div>
     </div>
@@ -45,7 +47,7 @@
   
     <main>
         <div class="new-content">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newBacklog">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changeContent" onclick="pushHtmlForModal()">
                 new backlog
             </button>
         </div>

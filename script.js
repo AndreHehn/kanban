@@ -69,8 +69,8 @@ function generateHtml(element) {
         <div class="card-body">
             <h5 class="card-title"> ${element['title']}</h5>
             <p class="card-text"> ${element['content']}</p>
-            <a href="#" class="btn btn-primary">edit</a>
-            <a href="#" class="btn btn-primary">delete</a>
+            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changeContent" onclick="pushHtmlForModal(${id})">edit</a>
+            <a href="#" class="btn btn-primary"  onclick="deleteTicket(${id})">delete</a>
         </div>
     </div>`;
 }
@@ -105,17 +105,63 @@ function drop(category) {
 }
 
 /**
- * reads content from form and adds it to backlog.
+ * saves content to array and refreshes page
+ * 
+ * @param {*} title id of textfield
+ * @param {*} content id of textarea
  */
-function newContent() {
-    let title = document.getElementById('newTitle').value;
-    let content = document.getElementById('newContent').value;
-    console.log(title, content);
+function newContent(title, content) {
     let newContent = {
-        'title': title,
-        'content': content,
+        'title': title.value,
+        'content': content.value,
         'category': 'backlog'
     }
     data.push(newContent);
+    document.getElementById('changeTitle').value = ``;
+    document.getElementById('changeInnerContent').value = ``;
     updateHTML();
+}
+
+/**
+ * deletes ticket from page and array
+ * 
+ * @param {*} id tells which ticket
+ */
+function deleteTicket(id) {
+    data.splice(id, 1);
+    updateHTML();
+}
+
+/**
+ * changes HTML elements of the modal
+ * 
+ * @param {*} id tells which ticket
+ */
+function pushHtmlForModal(id) {
+    document.getElementById('changeButton').setAttribute('onclick', `saveTicket(${id})`);
+    if (id !== undefined) {
+        document.getElementById('changeTitle').value = `${data[id]['title']}`;
+        document.getElementById('changeInnerContent').value = `${data[id]['content']}`;
+    }
+}
+
+/**
+ * saves ticket to array and refreshes site
+ * 
+ * @param {*} id tells which tickelt
+ */
+function saveTicket(id) {
+    let title = document.getElementById('changeTitle');
+    let content = document.getElementById('changeInnerContent');
+
+    if (id == undefined) {
+        newContent(title, content);
+    }
+    else {
+        data[id]['title'] = title.value;
+        data[id]['content'] = content.value;
+        document.getElementById('changeTitle').value = ``;
+        document.getElementById('changeInnerContent').value = ``;
+        updateHTML();
+    }
 }
