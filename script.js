@@ -41,6 +41,9 @@ let data = [
 let categories = ['backlog', 'todo', 'progress', 'testing', 'done'];
 let currentDrag;
 
+/**
+ * Reads the JSON-array data and renders the elements in the according div.
+ */
 function updateHTML() {
     for (let i = 0; i < categories.length; i++) {
         let category = categories[i];
@@ -53,23 +56,41 @@ function updateHTML() {
     }
 }
 
+/**
+ * Returns a draggable "ticket" (div) with the content of the JSON-array.
+ * 
+ * @param {*} element is the content of the JSON ARRAY at defined index.
+ * @returns HTML
+ */
 function generateHtml(element) {
 let id= data.indexOf(element);
     return `<div draggable ="true" ondragstart="startDrag(${id})" class="subelement"> ${element['title']}</div>`;
 }
 
-
+/**
+ * Pushes the id  to the variable currentDrag for drop().
+ * 
+ * @param {*} id is the index of an element.
+ */
 function startDrag(id){
 currentDrag = id;
-console.log(id);
 }
 
-
+/**
+ * Standard W3-School function to allow Drop of a dragged element.
+ * 
+ * @param {*} ev event
+ */
 function allowDrop(ev) {
     ev.preventDefault();
 }
 
-
+/**
+ * Changes The content of the "category"-key.
+ * refreshes the kanban-board.
+ * 
+ * @param {*} category is the id of the div in which the element is dropped.
+ */
 function drop(category) {
 data[currentDrag]['category'] = category;
 updateHTML();
