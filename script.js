@@ -153,3 +153,21 @@ function saveTicket(id) {
         updateHTML();
     }
 }
+
+/**
+ * endarkens the card while ticket is dragged over
+ * 
+ * @param {*} id tells which card
+ */
+function endarken(id) {
+    document.getElementById(id).classList.add('drag-over');
+}
+
+/**
+ * changes card back to regualar.
+ * 
+ * @param {*} id tells which card
+ */
+function endarkenOff(id) {
+    document.getElementById(id).classList.remove('drag-over');
+}

@@ -8,6 +8,10 @@ main {
     align-items: center;
 }
 
+.headline-main{
+margin-top: 16px;
+}
+
 .kanban-board {
     display: flex;
     justify-content: space-around;
@@ -15,12 +19,20 @@ main {
     height: 100%;
 }
 
-.board-element {
+.board-element {position:relative;
     margin-top: 16px;
     width: 280px;
     height: 700px;
 }
 
+.element-headline{
+    margin-top: 8px;
+}
+
+.backlog-button{
+    position: absolute;
+    top:8px;
+right: 16px;}
 
 .headline-name {
     text-align: center;
@@ -30,12 +42,11 @@ main {
     margin-bottom: 4px;
 }
 
-.new-content {
-    margin-top: 16px;
-    margin-bottom: 16px;
-}
 
 .form-resize-off{
-
     resize: none;
+}
+
+.drag-over{
+    background-color: rgba(0, 0, 0, 0.2);
 }
