@@ -29,6 +29,26 @@
                         <label for="changeTitle" class="form-label">title:</label>
                         <input type="text" class="form-control" id="changeTitle" placeholder="new title">
                     </div>
+                    <label for="priority" class="form-label">priority:</label>
+
+                    <select class="form-select" aria-label="Default select"  id="changePriority">
+                        <option selected>select priority</option>
+                        <option value="high">high</option>
+                        <option value="intermediate">intermediate</option>
+                        <option value="low">low</option>
+                      </select>
+
+                      <label for="assigned" class="form-label">assign to:</label>
+
+                      <select class="form-select" aria-label="Default select" id="changeAssigned">
+                        <option selected>assign To:</option>
+                        <option value="someone">someone</option>
+                        <option value="somebody">somebody</option>
+                        <option value="anybody">anybody</option>
+                      </select>
+
+
+
                     <div class="mb-3">
                         <label for="changeContent" class="form-label">content:</label>
                         <textarea class="form-control form-resize-off" rows="3" id="changeInnerContent"></textarea>
@@ -54,7 +74,7 @@
                 <div class="element-headline">
                     <h3 class="card-title headline-name">backlog</h3>
                     <button type="button" class="btn btn-primary backlog-button" data-bs-toggle="modal"
-                        data-bs-target="#changeContent" onclick="pushHtmlForModal()">
+                        data-bs-target="#changeContent" onclick="pushValueToModal()">
                         +
                     </button>
                 </div>

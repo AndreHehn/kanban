@@ -13,35 +13,46 @@
  */
 
 
- let data = [
+let data = [
     {
         "title": "test1",
         "content": "blablabla1",
         "category": "backlog",
-        "timestamp": 0
+        "timestamp": 0,
+        "priority": "high",
+        "assigned": "no"
     },
     {
         "title": "test2",
         "content": "blablabla2",
         "category": "todo",
-        "timestamp": 0
+        "timestamp": 0,
+        "priority": "high",
+        "assigned": "no"
     },
     {
         "title": "test3",
         "content": "blablabla3",
         "category": "progress",
-        "timestamp": 0
+        "timestamp": 0,
+        "priority": "high",
+        "assigned": "no"
     },
     {
         "title": "test4",
         "content": "blablabla4",
-        "timestamp": 0
+        "category": "testing",
+        "timestamp": 0,
+        "priority": "high",
+        "assigned": "no"
     },
     {
         "title": "test5",
         "content": "blablabla5",
         "category": "done",
-        "timestamp": 0
+        "timestamp": 0,
+        "priority": "high",
+        "assigned": "no"
     }
 ];
 
@@ -52,10 +63,9 @@ let currentDrag;
  * Reads the JSON-array data and renders the elements in the according div.
  */
 function updateHTML() {
-    data.sort (function(a, b){
+    data.sort(function (a, b) {
         return a.timestamp - b.timestamp;
     });
-    console.log(data);
     for (let i = 0; i < categories.length; i++) {
         let category = categories[i];
         let column = data.filter(cat => cat['category'] == category);
@@ -76,12 +86,13 @@ function updateHTML() {
 function generateHtml(element) {
     let id = data.indexOf(element);
     return `
-    <div class="card sub-card" draggable ="true" ondragstart="startDrag(${id})">
+    <div class="card sub-card priority${element['priority']}" draggable ="true" ondragstart="startDrag(${id})">
         <div class="card-body">
             <h5 class="card-title"> ${element['title']}</h5>
             <p class="card-text"> ${element['content']}</p>
+            <p class="card-text"> Assigned to:${element['assigned']}</p>
             <div class="ticket-buttons">
-            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changeContent" onclick="pushHtmlForModal(${id})">edit</a>
+            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changeContent" onclick="pushValueToModal(${id})">edit</a>
             <a href="#" class="btn btn-primary"  onclick="deleteTicket(${id})">delete</a></div>
         </div>
     </div>`;
@@ -124,13 +135,15 @@ function drop(category) {
  * @param {*} title id of textfield
  * @param {*} content id of textarea
  */
-function newContent(title, content) {
+function newContent(title, content, priority, assigned) {
     let time = new Date().getTime();
     let newContent = {
         "title": title.value,
         "content": content.value,
         "category": "backlog",
-        "timestamp": time
+        "timestamp": time,
+        "priority": priority.value,
+        "assigned": assigned.value
     }
     data.push(newContent);
     document.getElementById('changeTitle').value = ``;
@@ -153,11 +166,13 @@ function deleteTicket(id) {
  * 
  * @param {*} id tells which ticket
  */
-function pushHtmlForModal(id) {
+function pushValueToModal(id) {
     document.getElementById('changeButton').setAttribute('onclick', `saveTicket(${id})`);
     if (id !== undefined) {
         document.getElementById('changeTitle').value = `${data[id]['title']}`;
         document.getElementById('changeInnerContent').value = `${data[id]['content']}`;
+        document.getElementById('changePriority').value = `${data[id]['priority']}`;
+        document.getElementById('changeAssigned').value = `${data[id]['assigned']}`;
     }
 }
 
@@ -169,17 +184,33 @@ function pushHtmlForModal(id) {
 function saveTicket(id) {
     let title = document.getElementById('changeTitle');
     let content = document.getElementById('changeInnerContent');
-
+    let priority = document.getElementById('changePriority');
+    let assigned = document.getElementById('changeAssigned');
     if (id == undefined) {
-        newContent(title, content);
+        newContent(title, content, priority, assigned);
     }
     else {
-        data[id]['title'] = title.value;
-        data[id]['content'] = content.value;
-        document.getElementById('changeTitle').value = ``;
-        document.getElementById('changeInnerContent').value = ``;
-        updateHTML();
+        editContent(title, content, priority, assigned, id);
     }
+}
+
+/**
+ * edits Ticket
+ * 
+ * @param {*} title 
+ * @param {*} content 
+ * @param {*} priority 
+ * @param {*} assigned document.getElementbyID....
+ */
+function editContent(title, content, priority, assigned, id) {
+    data[id]['title'] = title.value;
+    data[id]['content'] = content.value;
+    data[id]['priority'] = priority.value;
+    data[id]['assigned'] = assigned.value;
+    document.getElementById('changeTitle').value = ``;
+    document.getElementById('changeInnerContent').value = ``;
+    updateHTML();
+
 }
 
 /**
