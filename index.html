@@ -7,45 +7,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KANBAN</title>
     <script src="./script.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
     <link href="./style.css" rel="stylesheet" type="text/css">
     <link href="#" rel="icon" type="image/png">
 </head>
 
-<body onload ="updateHTML()">
+<body onload="updateHTML()">
     <main>
-        <div class="new-content" onclick="newContent()">Add a new Backlog</div>
+        <div class="new-content"><button type="button" class="btn btn-primary" onclick="newContent()"">new backlog</button>
+        </div>
         <div class="kanban-board">
-        <div class="board-element" ondrop="drop('backlog')" ondragover="allowDrop(event)">
-            <div class="element-headline">
-                <div class="headline-name">backlog</div>
+            <div class="card board-element" ondrop="drop('backlog')" ondragover="allowDrop(event)">
+                <div class="element-headline">
+                    <h3 class="card-title headline-name">backlog</h3>
+                </div>
+                <div class="card-body element-content" id="backlog"></div>
             </div>
-            <div class="element-content" id="backlog"></div>
-        </div>
-        <div class="board-element" ondrop="drop('todo')" ondragover="allowDrop(event)">
-            <div class="element-headline">
-                <div class="headline-name">to do</div>
+            <div class="card board-element" ondrop="drop('todo')" ondragover="allowDrop(event)">
+                <div class="element-headline">
+                    <h3 class="card-title headline-name">to do</h3>
+                </div>
+                <div class="card-body element-content" id="todo"></div>
             </div>
-            <div class="element-content" id="todo"></div>
-        </div>
-        <div class="board-element" ondrop="drop('progress')" ondragover="allowDrop(event)">
-            <div class="element-headline">
-                <div class="headline-name">in progress</div>
+            <div class="card board-element" ondrop="drop('progress')" ondragover="allowDrop(event)">
+                <div class="element-headline">
+                    <h3 class=" card-title headline-name">in progress</h3>
+                </div>
+                <div class="card-body element-content" id="progress"></div>
             </div>
-            <div class="element-content" id="progress"></div>
-        </div>
-        <div class="board-element" ondrop="drop('testing')" ondragover="allowDrop(event)">
-            <div class="element-headline">
-                <div class="headline-name">testing</div>
+            <div class="card board-element" ondrop="drop('testing')" ondragover="allowDrop(event)">
+                <div class="element-headline">
+                    <h3 class="card-title headline-name">testing</h3>
+                </div>
+                <div class="card-body element-content" id="testing"></div>
             </div>
-            <div class="element-content" id="testing"></div>
-        </div>
-        <div class="board-element" ondrop="drop('done')" ondragover="allowDrop(event)">
-            <div class="element-headline">
-                <div class="headline-name">done</div>
+            <div class="card board-element" ondrop="drop('done')" ondragover="allowDrop(event)">
+                <div class=" element-headline">
+                    <h3 class="card-title headline-name">done</h3>
+                </div>
+                <div class="card-body element-content" id="done"></div>
             </div>
-            <div class="element-content" id="done"></div>
         </div>
-    </div>
     </main>
 </body>
 

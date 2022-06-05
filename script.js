@@ -63,8 +63,15 @@ function updateHTML() {
  * @returns HTML
  */
 function generateHtml(element) {
-let id= data.indexOf(element);
-    return `<div draggable ="true" ondragstart="startDrag(${id})" class="subelement"> ${element['title']}</div>`;
+    let id = data.indexOf(element);
+    return `
+    <div class="card sub-card" draggable ="true" ondragstart="startDrag(${id})">
+        <div class="card-body">
+            <h5 class="card-title"> ${element['title']}</h5>
+            <p class="card-text"> ${element['content']}</p>
+            <a href="#" class="btn btn-primary">edit delete</a>
+        </div>
+    </div>`;
 }
 
 /**
@@ -72,8 +79,8 @@ let id= data.indexOf(element);
  * 
  * @param {*} id is the index of an element.
  */
-function startDrag(id){
-currentDrag = id;
+function startDrag(id) {
+    currentDrag = id;
 }
 
 /**
@@ -92,6 +99,6 @@ function allowDrop(ev) {
  * @param {*} category is the id of the div in which the element is dropped.
  */
 function drop(category) {
-data[currentDrag]['category'] = category;
-updateHTML();
+    data[currentDrag]['category'] = category;
+    updateHTML();
 }
