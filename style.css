@@ -8,8 +8,8 @@ main {
     align-items: center;
 }
 
-.headline-main{
-margin-top: 16px;
+.headline-main {
+    margin-top: 16px;
 }
 
 .kanban-board {
@@ -19,20 +19,27 @@ margin-top: 16px;
     height: 100%;
 }
 
-.board-element {position:relative;
+.board-element {
+    position: relative;
     margin-top: 16px;
     width: 280px;
     height: 700px;
 }
 
-.element-headline{
+.element-headline {
     margin-top: 8px;
 }
 
-.backlog-button{
+.backlog-button {
     position: absolute;
-    top:8px;
-right: 16px;}
+    top: 8px;
+    right: 16px;
+}
+
+.ticket-buttons{
+display:flex;
+justify-content: space-between;
+}
 
 .headline-name {
     text-align: center;
@@ -43,10 +50,10 @@ right: 16px;}
 }
 
 
-.form-resize-off{
+.form-resize-off {
     resize: none;
 }
 
-.drag-over{
+.drag-over {
     background-color: rgba(0, 0, 0, 0.2);
 }

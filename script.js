@@ -1,3 +1,20 @@
+/**
+ * 
+ * Dringlichkeit hinzufügen (Farben)
+ * 
+ * Assigned to hinzufügen (nachdem man das aus backlog herausnimmt)
+ * 
+ * Erstellungsdatum hinzufügen
+ * 
+ * Deadline hinzufügen
+ * 
+ * Mülleimer
+ * 
+ */
+
+
+
+
 let data = [
     {
         'title': 'test1',
@@ -66,8 +83,9 @@ function generateHtml(element) {
         <div class="card-body">
             <h5 class="card-title"> ${element['title']}</h5>
             <p class="card-text"> ${element['content']}</p>
+            <div class="ticket-buttons">
             <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changeContent" onclick="pushHtmlForModal(${id})">edit</a>
-            <a href="#" class="btn btn-primary"  onclick="deleteTicket(${id})">delete</a>
+            <a href="#" class="btn btn-primary"  onclick="deleteTicket(${id})">delete</a></div>
         </div>
     </div>`;
 }
