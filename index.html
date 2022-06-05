@@ -13,10 +13,11 @@
 
 <body onload ="updateHTML()">
     <main>
+        <div class="new-content" onclick="newContent()">Add a new Backlog</div>
+        <div class="kanban-board">
         <div class="board-element" ondrop="drop('backlog')" ondragover="allowDrop(event)">
             <div class="element-headline">
                 <div class="headline-name">backlog</div>
-                <div class="new-content" onclick="newContent()">+</div>
             </div>
             <div class="element-content" id="backlog"></div>
         </div>
@@ -44,6 +45,7 @@
             </div>
             <div class="element-content" id="done"></div>
         </div>
+    </div>
     </main>
 </body>
 
