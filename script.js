@@ -1,9 +1,5 @@
 /**
  * 
- * Dringlichkeit hinzufügen (Farben)
- * 
- * Assigned to hinzufügen (nachdem man das aus backlog herausnimmt)
- * 
  * Erstellungsdatum hinzufügen
  * 
  * Deadline hinzufügen
@@ -90,7 +86,7 @@ function generateHtml(element) {
         <div class="card-body">
             <h5 class="card-title priority${element['priority']}"> ${element['title']}</h5>
             <p class="card-text"> ${element['content']}</p>
-            <p class="card-text"> Assigned to:${element['assigned']}</p>
+            <p class="card-text"> Assigned to: ${element['assigned']}</p>
             <div class="ticket-buttons">
             <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changeContent" onclick="pushValueToModal(${id})">edit</a>
             <a href="#" class="btn btn-primary"  onclick="deleteTicket(${id})">delete</a></div>
@@ -139,7 +135,7 @@ function openModal(category) {
     if (category == 'backlog' || category == 'todo') {
         data[currentDrag]['assigned'] = 'unassigned';
     }
-    else {
+    else if(category == 'progress' || category == 'testing'){
         document.getElementById('modalTitle').classList.add('d-none');
         document.getElementById('labelPriority').classList.add('d-none');
         document.getElementById('changePriority').classList.add('d-none');
