@@ -13,23 +13,22 @@
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
         crossorigin="anonymous"></script>
     <link href="./style.css" rel="stylesheet" type="text/css">
-    <link href="#" rel="icon" type="image/png">
+    <link href="./img/favicon.png" rel="icon" type="image/png">
 </head>
 
 <body onload="updateHTML()">
-    <div class="modal fade" id="changeContent" tabindex="-1" aria-labelledby="modaHeadline" aria-hidden="true">
+    <div class="modal fade" id="changeContent" tabindex="-1" aria-labelledby="modaHeadline" data-bs-backdrop="static" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modaHeadline">Ticket:</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="mb-3">
+                    <div class="mb-3" id="modalTitle">
                         <label for="changeTitle" class="form-label">title:</label>
                         <input type="text" class="form-control" id="changeTitle" placeholder="new title">
                     </div>
-                    <label for="priority" class="form-label">priority:</label>
+                    <label for="priority" class="form-label" id ="labelPriority">priority:</label>
 
                     <select class="form-select" aria-label="Default select" id="changePriority">
                         <option value="high" selected>high</option>
@@ -37,8 +36,7 @@
                         <option value="low" selected>low</option>
                     </select>
 
-                    <label for="assigned" class="form-label">assign to:</label>
-
+                    <label for="assigned" id="labelAssigned" class="form-label">assign to:</label>
                     <select class="form-select" aria-label="Default select" id="changeAssigned">
                         <option value="unassigned" selected> unassigned</option>
                         <option value="someone">someone</option>
@@ -46,15 +44,14 @@
                         <option value="anybody">anybody</option>
                     </select>
 
-
-
-                    <div class="mb-3">
+                    <div class="mb-3" id="modalContent">
                         <label for="changeContent" class="form-label">content:</label>
                         <textarea class="form-control form-resize-off" rows="3" id="changeInnerContent"></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                        onclick="setBackContent()">Close</button>
                     <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
                         id="changeButton">Save</button>
                 </div>

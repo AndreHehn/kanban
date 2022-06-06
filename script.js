@@ -20,7 +20,7 @@ let data = [
         "category": "backlog",
         "timestamp": 0,
         "priority": "high",
-        "assigned": "no"
+        "assigned": "unassigned"
     },
     {
         "title": "test2",
@@ -28,7 +28,7 @@ let data = [
         "category": "todo",
         "timestamp": 0,
         "priority": "high",
-        "assigned": "no"
+        "assigned": "unassigned"
     },
     {
         "title": "test3",
@@ -36,7 +36,7 @@ let data = [
         "category": "progress",
         "timestamp": 0,
         "priority": "high",
-        "assigned": "no"
+        "assigned": "unassigned"
     },
     {
         "title": "test4",
@@ -44,7 +44,7 @@ let data = [
         "category": "testing",
         "timestamp": 0,
         "priority": "high",
-        "assigned": "no"
+        "assigned": "unassigned"
     },
     {
         "title": "test5",
@@ -52,7 +52,7 @@ let data = [
         "category": "done",
         "timestamp": 0,
         "priority": "high",
-        "assigned": "no"
+        "assigned": "unassigned"
     }
 ];
 
@@ -126,7 +126,28 @@ function drop(category) {
     let time = new Date().getTime();
     data[currentDrag]['category'] = category;
     data[currentDrag]['timestamp'] = time;
+    openModal(category);
     updateHTML();
+}
+
+/**
+ * opens Modal to edit assignment
+ * 
+ * @param {*} category tells which category the ticket is beeing dropped
+ */
+function openModal(category) {
+    if (category == 'backlog' || category == 'todo') {
+        data[currentDrag]['assigned'] = 'unassigned';
+    }
+    else {
+        document.getElementById('modalTitle').classList.add('d-none');
+        document.getElementById('labelPriority').classList.add('d-none');
+        document.getElementById('changePriority').classList.add('d-none');
+        document.getElementById('modalContent').classList.add('d-none');
+        document.getElementById('changeButton').setAttribute('onclick', `saveTicket('assign'+${currentDrag})`);
+        let myModal = new bootstrap.Modal(document.getElementById("changeContent"), {});
+        myModal.toggle();
+    }
 }
 
 /**
@@ -135,7 +156,7 @@ function drop(category) {
  * @param {*} title id of textfield
  * @param {*} content id of textarea
  */
-function newContent(title, content, priority, assigned) {
+function newContent(title, content, priority,) {
     let time = new Date().getTime();
     let newContent = {
         "title": title.value,
@@ -143,10 +164,10 @@ function newContent(title, content, priority, assigned) {
         "category": "backlog",
         "timestamp": time,
         "priority": priority.value,
-        "assigned": assigned.value
+        "assigned": 'unassigned'
     }
     data.push(newContent);
-    setBackForNewContent();
+    setBackContent();
     updateHTML();
 }
 
@@ -154,11 +175,17 @@ function newContent(title, content, priority, assigned) {
  * sets back value of Modal to default.
  * 
  */
-function setBackForNewContent(){
+function setBackContent() {
     document.getElementById('changeTitle').value = ``;
     document.getElementById('changeInnerContent').value = ``;
     document.getElementById('changeAssigned').value = `unassigned`;
     document.getElementById('changePriority').value = `low`;
+    document.getElementById('labelAssigned').classList.remove('d-none');
+    document.getElementById('changeAssigned').classList.remove('d-none');
+    document.getElementById('modalTitle').classList.remove('d-none');
+    document.getElementById('labelPriority').classList.remove('d-none');
+    document.getElementById('changePriority').classList.remove('d-none');
+    document.getElementById('modalContent').classList.remove('d-none');
 }
 
 /**
@@ -184,6 +211,10 @@ function pushValueToModal(id) {
         document.getElementById('changePriority').value = `${data[id]['priority']}`;
         document.getElementById('changeAssigned').value = `${data[id]['assigned']}`;
     }
+    else {
+        document.getElementById('labelAssigned').classList.add('d-none');
+        document.getElementById('changeAssigned').classList.add('d-none');
+    }
 }
 
 /**
@@ -196,8 +227,26 @@ function saveTicket(id) {
     let content = document.getElementById('changeInnerContent');
     let priority = document.getElementById('changePriority');
     let assigned = document.getElementById('changeAssigned');
+    ifForSaveTicket(title, content, priority, assigned, id);
+}
+
+/**
+ * if check for saveticket
+ * 
+ * @param {*} title 
+ * @param {*} content 
+ * @param {*} priority 
+ * @param {*} assigned value of textfields of modal
+ * @param {*} id  
+ */
+function ifForSaveTicket(title, content, priority, assigned, id){
     if (id == undefined) {
-        newContent(title, content, priority, assigned);
+        newContent(title, content, priority);
+    }
+    else if (id.includes('assign')) {
+        data[currentDrag]['assigned'] = assigned.value;
+        setBackContent();
+        updateHTML();
     }
     else {
         editContent(title, content, priority, assigned, id);
