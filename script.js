@@ -64,7 +64,7 @@ let data = [
     }
 ];
 
-let categories = ['backlog', 'todo', 'progress', 'testing', 'done'];
+let categories = ['backlog', 'todo', 'progress', 'testing', 'done','archive','trash'];
 let currentDrag;
 
 /**
