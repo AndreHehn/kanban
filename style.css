@@ -15,12 +15,30 @@ main {
 .kanban-board {
     display: flex;
     justify-content: space-around;
-    width: 1600px;
+    gap: 16px;
+    max-width: 1600px;
     height: 100%;
 }
 
+.nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.nav-card {
+    height: 180px;
+    text-decoration: none;
+    color:black;
+}
+
+.nav-card :hover {
+    text-decoration: none;
+    color:black;
+}
+
+
 .board-element {
-    position: relative;
     margin-top: 16px;
     width: 280px;
     height: 700px;
@@ -36,9 +54,9 @@ main {
     right: 16px;
 }
 
-.ticket-buttons{
-display:flex;
-justify-content: space-between;
+.ticket-buttons {
+    display: flex;
+    justify-content: space-between;
 }
 
 .headline-name {
@@ -57,23 +75,27 @@ justify-content: space-between;
     background-color: rgba(0, 0, 0, 0.2);
 }
 
-.priorityhigh{
+.priorityhigh {
     background-color: rgba(255, 0, 0, 0.2);
     border-radius: 4px;
-    margin-left:-4px;
-    padding-left:4px;
+    margin-left: -4px;
+    padding-left: 4px;
 }
 
-.priorityintermediate{
+.priorityintermediate {
     background-color: rgba(255, 255, 0, 0.2);
     border-radius: 4px;
-    margin-left:-4px;
-    padding-left:4px;
+    margin-left: -4px;
+    padding-left: 4px;
 }
 
-.prioritylow{
+.prioritylow {
     background-color: rgba(0, 255, 0, 0.2);
     border-radius: 4px;
-    margin-left:-4px;
-    padding-left:4px;
+    margin-left: -4px;
+    padding-left: 4px;
+}
+
+.offcanvas.offcanvas-end {
+    width: 80% !important;
 }

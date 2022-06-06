@@ -1,10 +1,22 @@
 /**
  * 
+ * 
+ * Trash bekommt einen müllleimer und ein recycle button
+ * recycle button fragt nach in welche "caegory"(backlog- done) verschoben werden soll
+ * 
+ * archive gleiches nur mülleimer heisst verschieben in trash
+ * 
+ * 
  * Erstellungsdatum hinzufügen
+ * 
  * 
  * Deadline hinzufügen
  * 
- * Mülleimer
+ * 
+ * evtl localstorage
+ * 
+ * 
+ * ticket umgestalten: nur Titel und assigned anzeigen; zusätlicher Button, der zusätzliche infos anzeigt. evtl über collapse, weiteres modal, popover
  * 
  */
 

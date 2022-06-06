@@ -17,7 +17,10 @@
 </head>
 
 <body onload="updateHTML()">
-    <div class="modal fade" id="changeContent" tabindex="-1" aria-labelledby="modaHeadline" data-bs-backdrop="static" aria-hidden="true">
+
+    <!-- modal, where you can define new or edit existing ticket-->
+    <div class="modal fade" id="changeContent" tabindex="-1" aria-labelledby="modaHeadline" data-bs-backdrop="static"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -28,7 +31,7 @@
                         <label for="changeTitle" class="form-label">title:</label>
                         <input type="text" class="form-control" id="changeTitle" placeholder="new title">
                     </div>
-                    <label for="priority" class="form-label" id ="labelPriority">priority:</label>
+                    <label for="priority" class="form-label" id="labelPriority">priority:</label>
 
                     <select class="form-select" aria-label="Default select" id="changePriority">
                         <option value="high" selected>high</option>
@@ -65,16 +68,38 @@
         </div>
 
         <div class="kanban-board">
-            <div class="card board-element" ondrop="drop('backlog'); endarkenOff('backlogDiv') " id="backlogDiv"
-                ondragleave="endarkenOff('backlogDiv')" ondragover="allowDrop(event); endarken('backlogDiv')">
-                <div class="element-headline">
-                    <h3 class="card-title headline-name">backlog</h3>
-                    <button type="button" class="btn btn-primary backlog-button" data-bs-toggle="modal"
-                        data-bs-target="#changeContent" onclick="pushValueToModal()">
-                        +
-                    </button>
+            <div class="card board-element border-0 nav" id="nav">
+
+                <a href="#offcanvasBacklog" class="card nav-card" ondrop="drop('backlog'); endarkenOff('backlogDiv') "
+                    id="backlogDiv" ondragleave="endarkenOff('backlogDiv')"
+                    ondragover="allowDrop(event); endarken('backlogDiv')" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasBacklog" aria-controls="offcanvasBacklog">
+                    <div class="card-body">
+                        <h5 class="card-title">backlog</h5>
+                        <span>click on me to show backlog.</span>
+                    </div>
+                </a>
+
+
+                <a href="#offcanvasArchive" class="card nav-card" ondrop="drop('archive'); endarkenOff('archiveDiv') "
+                    id="archiveDiv" ondragleave="endarkenOff('archiveDiv')"
+                    ondragover="allowDrop(event); endarken('archiveDiv')" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasArchive" aria-controls="offcanvasArchive">
+                    <div class="card-body">
+                        <h5 class="card-title">archive</h5>
+                        <span>click on me to show archive.</span>
+                    </div>
+                </a>
+
+                <div href="#offcanvasTrash" class="card nav-card" ondrop="drop('trash'); endarkenOff('trashDiv') "
+                    id="trashDiv" ondragleave="endarkenOff('trashDiv')"
+                    ondragover="allowDrop(event); endarken('trashDiv')" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasTrash" aria-controls="offcanvasTrash">
+                    <div class="card-body">
+                        <h5 class="card-title">trash</h5>
+                        <span>click on me to show trash.</span>
+                    </div>
                 </div>
-                <div class="card-body element-content" id="backlog"></div>
             </div>
 
             <div class="card board-element" ondrop="drop('todo'); endarkenOff('todoDiv')" id="todoDiv"
@@ -110,6 +135,50 @@
             </div>
         </div>
     </main>
+
+
+    <!-- needs to be edited!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+    <!--backlog-->
+
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasBacklog" aria-labelledby="offcanvasBacklogLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasBacklogLabel">backlog</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <button type="button" class="btn btn-primary backlog-button" data-bs-toggle="modal"
+                data-bs-target="#changeContent" onclick="pushValueToModal()">
+                +
+            </button>
+            <div id="backlog" class=""></div>
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasArchive" aria-labelledby="offcanvasArchiveLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasArchiveLabel">archive</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div id="archive" class=""></div>
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasTrash" aria-labelledby="offcanvasTrashLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasTrashLabel">trash</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div id="trash" class=""></div>
+        </div>
+    </div>
+
+
+
+
 </body>
+
 
 </html>
