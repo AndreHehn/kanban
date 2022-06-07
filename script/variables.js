@@ -1,3 +1,5 @@
+
+
 let data = [
     {
         "title": "test1",
@@ -49,3 +51,4 @@ let data = [
 let categories = ['backlog', 'todo', 'progress', 'testing', 'done', 'archive', 'trash'];
 let currentDrag;
 let maxTickets= 3;
+let temporaryId;

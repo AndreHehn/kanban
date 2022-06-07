@@ -20,12 +20,12 @@
 <body onload="updateHTML()">
 
     <!-- modal, where you can define new or edit existing ticket-->
-    <div class="modal fade" id="changeContent" tabindex="-1" aria-labelledby="modaHeadline" data-bs-backdrop="static"
+    <div class="modal fade" id="changeContent" tabindex="-1" aria-labelledby="modalHeadline" data-bs-backdrop="static"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modaHeadline">Ticket:</h5>
+                    <h5 class="modal-title" id="modalHeadline">Ticket:</h5>
                 </div>
                 <div class="modal-body">
                     <div class="mb-3" id="modalTitle">
@@ -165,8 +165,8 @@
                 ondragleave="endarkenOff('backlogTrashDiv')" ondragover="allowDrop(event); endarken('backlogTrashDiv')"
                 id="backlogTrash">delete</div>
             <div class="" ondrop="drop('todo'); endarkenOff('backlogOffDiv')" id="backlogOffDiv"
-                ondragleave="endarkenOff('backlogOffDiv')"
-                ondragover="allowDrop(event); endarken('backlogOffDiv')" id="backlogOff">todo</div>
+                ondragleave="endarkenOff('backlogOffDiv')" ondragover="allowDrop(event); endarken('backlogOffDiv')"
+                id="backlogOff">todo</div>
         </div>
     </div>
 

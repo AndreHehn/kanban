@@ -12,8 +12,9 @@ function updateHTML() {
         let column = data.filter(cat => cat['category'] == category);
         document.getElementById(category).innerHTML = '';
         for (let j = 0; j < column.length; j++) {
-            const element = column[j];
-            document.getElementById(category).innerHTML += generateHtml(element);
+            let element = column[j];
+            let id = data.indexOf(element);
+            document.getElementById(category).innerHTML += generateHtml(element, id);
         }
     }
 }
@@ -24,19 +25,47 @@ function updateHTML() {
  * @param {*} element is the content of the JSON ARRAY at defined index.
  * @returns HTML
  */
-function generateHtml(element) {
-    let id = data.indexOf(element);
+function generateHtml(element, id) {
     return `
-    <div class="card sub-card" draggable ="true" ondragstart="startDrag(${id})">
-        <div class="card-body">
-            <h5 class="card-title priority${element['priority']}"> ${element['title']}</h5>
-            <p class="card-text"> Assigned to: ${element['assigned']}</p>
-            <div class="ticket-buttons">
-            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changeContent" onclick="pushValueToModal(${id})">edit</a>
-            <a href="#" class="btn btn-primary"  onclick="showInfo(${id})">more</a></div>
+    <div class="card sub-card" draggable="true" ondragstart="startDrag(${id})" id="${id}">
+    <div class="card-body">
+        <h5 class="card-title priority${element['priority']}"> ${element['title']}</h5>
+        <p class="card-text"> Assigned to: ${element['assigned']}</p>
+        <div class="ticket-buttons">
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changeContent"
+                onclick="pushValueToModal(${id})">edit</button>
+            <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapse${id}"
+                aria-expanded="false" aria-controls="collapseWidthExample" onclick="scrollToBottom(${id})">
+                more
+            </button>
         </div>
-    </div>`;
+    </div>
+    <div style="z-index:1;">
+        <div class="collapse" id="collapse${id}">
+            <div class="card card-body">
+            ${element['content']}
+            </div>
+        </div>
+    </div>
+</div>`;
 }
+
+
+
+/**
+ * awaits 50ms, so that the collapse can load. then scrolls to top
+ * 
+ * @param {*} id tell which ticket
+ */
+async function scrollToBottom(id) {
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+    await sleep(50);
+    document.getElementById('collapse' + id).scrollIntoView(true);
+    temporaryId = id;
+}
+
 
 /**
  * Pushes the id  to the variable currentDrag for drop().
@@ -94,11 +123,11 @@ function drop(category) {
  * @param {*} currentCategory is the id of the div from which the element is dropped.
  * @param {*} amountCategory is the amount of tickets the card has.
  */
-function ifsForDrop(category, currentCategory, amountCategory){
+function ifsForDrop(category, currentCategory, amountCategory) {
     if ((category == 'todo' || category == 'progress' || category == 'testing' || category == 'done') && amountCategory < maxTickets) {
         doDrop(category);
     }
-    else if ( category == 'backlog'){doDrop(category);}
+    else if (category == 'backlog') { doDrop(category); }
     else if (category == 'delete') {
         deleteTicket(currentDrag);
     }
@@ -292,8 +321,11 @@ function endarkenOff(id) {
     document.getElementById(id).classList.remove('drag-over');
 }
 
-function showInfo(id) {
-    // content (deadline, created on)
-
-
-}
+/**
+ * 
+ * if collapse is open and is clicked on window, the collapse closes.
+ */
+window.addEventListener('click', function () {
+    if (temporaryId !== undefined) {
+        document.getElementById('collapse' + temporaryId).classList.remove('show');
+    };})

@@ -1,6 +1,7 @@
 /**
- * 
- * 
+ * trash delete info after drop: that deletes the file irrevocably.
+
+ 
  * on drop in offset zu card machen
  * 
  * 
@@ -12,7 +13,7 @@
  * evtl localstorage
  * 
  * 
- * ticket umgestalten:  Button, der zusätzliche infos anzeigt. evtl über collapse, weiteres modal, popover
+ *content collapse umgestalten wenn deadline und erstellungsdatum hinzugefügt
  *
  * 
  * einstellungs button evtl  ( category max define)
