@@ -10,10 +10,11 @@ main {
 }
 
 .headline-main {
-    margin-top: 16px;
+    margin-top: 32px;
 }
 
 .kanban-board {
+    margin-top: 54px;
     display: flex;
     justify-content: space-around;
     gap: 32px;
@@ -25,15 +26,15 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: 32px;
     background-color: rgb(103, 158, 117) !important;
 }
 
 .nav-card {
+    height:calc((580px - 2 * 32px)/3);
     cursor: pointer;
-    height: 180px;
     text-decoration: none;
     color: black;
-
 }
 
 .nav-card :hover {
@@ -47,6 +48,7 @@ main {
 }
 
 .element-content {
+    padding-top:32px;
     background-color: white;
     border-bottom-left-radius:0.375rem;
     border-bottom-right-radius:0.375rem;
@@ -60,7 +62,7 @@ main {
 .board-element {
     margin-top: 16px;
     width: 280px;
-    height: 650px;
+    height: 580px;
 }
 
 .element-headline {
@@ -85,7 +87,7 @@ main {
 .sub-card {
     width:240px;
     cursor: pointer;
-    margin-bottom: 4px;
+    margin-bottom: 16px;
 }
 
 .form-resize-off {
