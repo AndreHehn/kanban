@@ -72,7 +72,7 @@ main {
 }
 
 .drag-over {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(150, 150, 150, 0.1);
 }
 
 .priorityhigh {

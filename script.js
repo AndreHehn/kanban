@@ -2,7 +2,7 @@
  * 
  * 
  * Trash bekommt einen müllleimer und ein recycle button
- * recycle button fragt nach in welche "caegory"(backlog- done) verschoben werden soll
+ * restore schiebt das ticket zurück in die alte kategorie
  * 
  * archive gleiches nur mülleimer heisst verschieben in trash
  * 
@@ -64,7 +64,7 @@ let data = [
     }
 ];
 
-let categories = ['backlog', 'todo', 'progress', 'testing', 'done','archive','trash'];
+let categories = ['backlog', 'todo', 'progress', 'testing', 'done', 'archive', 'trash'];
 let currentDrag;
 
 /**
@@ -101,7 +101,7 @@ function generateHtml(element) {
             <p class="card-text"> Assigned to: ${element['assigned']}</p>
             <div class="ticket-buttons">
             <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changeContent" onclick="pushValueToModal(${id})">edit</a>
-            <a href="#" class="btn btn-primary"  onclick="deleteTicket(${id})">delete</a></div>
+            <a href="#" class="btn btn-primary"  onclick="moveToTrash(${id})">delete</a></div>
         </div>
     </div>`;
 }
@@ -131,6 +131,11 @@ function allowDrop(ev) {
  * @param {*} category is the id of the div in which the element is dropped.
  */
 function drop(category) {
+    if (category == 'delete') {
+        deleteTicket(currentDrag);
+        updateHTML();
+        return;
+    }
     let time = new Date().getTime();
     data[currentDrag]['category'] = category;
     data[currentDrag]['timestamp'] = time;
@@ -147,7 +152,7 @@ function openModal(category) {
     if (category == 'backlog' || category == 'todo') {
         data[currentDrag]['assigned'] = 'unassigned';
     }
-    else if(category == 'progress' || category == 'testing'){
+    else if (category == 'progress' || category == 'testing') {
         document.getElementById('modalTitle').classList.add('d-none');
         document.getElementById('labelPriority').classList.add('d-none');
         document.getElementById('changePriority').classList.add('d-none');
@@ -194,6 +199,11 @@ function setBackContent() {
     document.getElementById('labelPriority').classList.remove('d-none');
     document.getElementById('changePriority').classList.remove('d-none');
     document.getElementById('modalContent').classList.remove('d-none');
+}
+
+function moveToTrash(id) {
+    data[id]['category'] = 'trash';
+    updateHTML();
 }
 
 /**
@@ -247,7 +257,7 @@ function saveTicket(id) {
  * @param {*} assigned value of textfields of modal
  * @param {*} id  
  */
-function ifForSaveTicket(title, content, priority, assigned, id){
+function ifForSaveTicket(title, content, priority, assigned, id) {
     if (id == undefined) {
         newContent(title, content, priority);
     }
