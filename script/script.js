@@ -1,76 +1,4 @@
-/**
- * 
- * backlog braucht noch ticket -> to do
- * 
- * on drop info text
- * 
- * in archive trash und backlog ondrop gestalten mittels card element
- * 
- * 
- * Erstellungsdatum hinzufügen
- * 
- * 
- * Deadline hinzufügen
- * 
- * 
- * evtl localstorage
- * 
- * 
- * ticket umgestalten:  Button, der zusätzliche infos anzeigt. evtl über collapse, weiteres modal, popover
- * 
- */
 
-
-let data = [
-    {
-        "title": "test1",
-        "content": "blablabla1",
-        "category": "backlog",
-        "timestamp": 0,
-        "priority": "high",
-        "assigned": "unassigned",
-        "oldCategory": ""
-    },
-    {
-        "title": "test2",
-        "content": "blablabla2",
-        "category": "todo",
-        "timestamp": 0,
-        "priority": "high",
-        "assigned": "unassigned",
-        "oldCategory": ""
-    },
-    {
-        "title": "test3",
-        "content": "blablabla3",
-        "category": "progress",
-        "timestamp": 0,
-        "priority": "high",
-        "assigned": "unassigned",
-        "oldCategory": ""
-    },
-    {
-        "title": "test4",
-        "content": "blablabla4",
-        "category": "testing",
-        "timestamp": 0,
-        "priority": "high",
-        "assigned": "unassigned",
-        "oldCategory": ""
-    },
-    {
-        "title": "test5",
-        "content": "blablabla5",
-        "category": "done",
-        "timestamp": 0,
-        "priority": "high",
-        "assigned": "unassigned",
-        "oldCategory": ""
-    }
-];
-
-let categories = ['backlog', 'todo', 'progress', 'testing', 'done', 'archive', 'trash'];
-let currentDrag;
 
 /**
  * Reads the JSON-array data and renders the elements in the according div.
@@ -343,7 +271,7 @@ function endarkenOff(id) {
 }
 
 function showInfo(id){
-
+// content (deadline, created on)
 
 
 }

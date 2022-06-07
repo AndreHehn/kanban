@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KANBAN</title>
-    <script src="./script.js"></script>
+    <script src="./script/variables.js"></script>
+    <script src="./script/script.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
@@ -70,7 +71,7 @@
         <div class="kanban-board">
             <div class="card board-element border-0 nav" id="nav">
 
-                <a href="#offcanvasBacklog" class="card nav-card change-background-greyish"
+                <div href="#offcanvasBacklog" class="card nav-card change-background-greyish"
                     ondrop="drop('backlog'); endarkenOff('backlogDiv') " id="backlogDiv"
                     ondragleave="endarkenOff('backlogDiv')" ondragover="allowDrop(event); endarken('backlogDiv')"
                     data-bs-toggle="offcanvas" data-bs-target="#offcanvasBacklog" aria-controls="offcanvasBacklog">
@@ -79,10 +80,10 @@
 
                         <span>click on me to show backlog.</span>
                     </div>
-                </a>
+                </div>
 
 
-                <a href="#offcanvasArchive" class="card nav-card change-background-greyish"
+                <div href="#offcanvasArchive" class="card nav-card change-background-greyish"
                     ondrop="drop('archive'); endarkenOff('archiveDiv') " id="archiveDiv"
                     ondragleave="endarkenOff('archiveDiv')" ondragover="allowDrop(event); endarken('archiveDiv')"
                     data-bs-toggle="offcanvas" data-bs-target="#offcanvasArchive" aria-controls="offcanvasArchive">
@@ -91,12 +92,12 @@
 
                         <span>click on me to show archive.</span>
                     </div>
-                </a>
+                </div>
 
                 <div href="#offcanvasTrash" class="card nav-card change-background-greyish"
-                    ondrop="drop('trash'); endarkenOff('trashDiv') " id="trashDiv" ondragleave="endarkenOff('trashDiv')"
-                    ondragover="allowDrop(event); endarken('trashDiv')" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasTrash" aria-controls="offcanvasTrash">
+                    ondrop="drop('trash'); endarkenOff('trashDiv')" id="trashDiv" 
+                    ondragleave="endarkenOff('trashDiv')" ondragover="allowDrop(event); endarken('trashDiv')" 
+                    data-bs-toggle="offcanvas" data-bs-target="#offcanvasTrash" aria-controls="offcanvasTrash">
                     <h5 class="card-title center-title">trash</h5>
                     <div class="card-body element-content">
 
@@ -189,7 +190,7 @@
             <div class="" ondrop="restore(); endarkenOff('restoreDiv')" id="restoreDiv"
                 ondragleave="endarkenOff('restoreDiv')" ondragover="allowDrop(event); endarken('restoreDiv')"
                 id="restore">restore</div>
-                <div class="" ondrop="drop('archive'); endarkenOff('trashArchiveDiv')" id="trashArchiveDiv"
+            <div class="" ondrop="drop('archive'); endarkenOff('trashArchiveDiv')" id="trashArchiveDiv"
                 ondragleave="endarkenOff('trashArchiveDiv')" ondragover="allowDrop(event); endarken('trashArchiveDiv')"
                 id="trashArchive">archive</div>
         </div>

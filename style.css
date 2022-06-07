@@ -29,6 +29,7 @@ main {
 }
 
 .nav-card {
+    cursor: pointer;
     height: 180px;
     text-decoration: none;
     color: black;
@@ -37,7 +38,7 @@ main {
 
 .nav-card :hover {
     text-decoration: none;
-    color: black;
+    color: black !important;
 }
 
 .center-title {
@@ -82,6 +83,7 @@ main {
 }
 
 .sub-card {
+    cursor: pointer;
     margin-bottom: 4px;
 }
 
