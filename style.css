@@ -47,10 +47,13 @@ main {
 
 .element-content {
     background-color: white;
+    border-bottom-left-radius:0.375rem;
+    border-bottom-right-radius:0.375rem;
 }
 
 .change-background-greyish {
     background-color: rgb(167, 167, 167);
+
 }
 
 .board-element {

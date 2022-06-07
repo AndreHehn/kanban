@@ -1,10 +1,10 @@
 /**
  * 
+ * backlog braucht noch ticket -> to do
  * 
- * Trash bekommt einen müllleimer und ein recycle button
- * restore schiebt das ticket zurück in die alte kategorie
+ * on drop info text
  * 
- * archive gleiches nur mülleimer heisst verschieben in trash
+ * in archive trash und backlog ondrop gestalten mittels card element
  * 
  * 
  * Erstellungsdatum hinzufügen
@@ -16,7 +16,7 @@
  * evtl localstorage
  * 
  * 
- * ticket umgestalten: nur Titel und assigned anzeigen; zusätlicher Button, der zusätzliche infos anzeigt. evtl über collapse, weiteres modal, popover
+ * ticket umgestalten:  Button, der zusätzliche infos anzeigt. evtl über collapse, weiteres modal, popover
  * 
  */
 
@@ -102,11 +102,10 @@ function generateHtml(element) {
     <div class="card sub-card" draggable ="true" ondragstart="startDrag(${id})">
         <div class="card-body">
             <h5 class="card-title priority${element['priority']}"> ${element['title']}</h5>
-            <p class="card-text"> ${element['content']}</p>
             <p class="card-text"> Assigned to: ${element['assigned']}</p>
             <div class="ticket-buttons">
             <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changeContent" onclick="pushValueToModal(${id})">edit</a>
-            <a href="#" class="btn btn-primary"  onclick="moveToTrash(${id})">delete</a></div>
+            <a href="#" class="btn btn-primary"  onclick="showInfo(${id})">more</a></div>
         </div>
     </div>`;
 }
@@ -341,4 +340,10 @@ function endarken(id) {
  */
 function endarkenOff(id) {
     document.getElementById(id).classList.remove('drag-over');
+}
+
+function showInfo(id){
+
+
+
 }
