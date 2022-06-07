@@ -28,7 +28,8 @@ let data = [
         "category": "backlog",
         "timestamp": 0,
         "priority": "high",
-        "assigned": "unassigned"
+        "assigned": "unassigned",
+        "oldCategory": ""
     },
     {
         "title": "test2",
@@ -36,7 +37,8 @@ let data = [
         "category": "todo",
         "timestamp": 0,
         "priority": "high",
-        "assigned": "unassigned"
+        "assigned": "unassigned",
+        "oldCategory": ""
     },
     {
         "title": "test3",
@@ -44,7 +46,8 @@ let data = [
         "category": "progress",
         "timestamp": 0,
         "priority": "high",
-        "assigned": "unassigned"
+        "assigned": "unassigned",
+        "oldCategory": ""
     },
     {
         "title": "test4",
@@ -52,7 +55,8 @@ let data = [
         "category": "testing",
         "timestamp": 0,
         "priority": "high",
-        "assigned": "unassigned"
+        "assigned": "unassigned",
+        "oldCategory": ""
     },
     {
         "title": "test5",
@@ -60,7 +64,8 @@ let data = [
         "category": "done",
         "timestamp": 0,
         "priority": "high",
-        "assigned": "unassigned"
+        "assigned": "unassigned",
+        "oldCategory": ""
     }
 ];
 
@@ -131,11 +136,7 @@ function allowDrop(ev) {
  * @param {*} category is the id of the div in which the element is dropped.
  */
 function drop(category) {
-    if (category == 'delete') {
-        deleteTicket(currentDrag);
-        updateHTML();
-        return;
-    }
+    ifsForDrop(category);
     let time = new Date().getTime();
     data[currentDrag]['category'] = category;
     data[currentDrag]['timestamp'] = time;
@@ -143,6 +144,37 @@ function drop(category) {
     updateHTML();
 }
 
+/**
+ * checks the category and says what to do with the "special" categories.
+ * 
+ * @param {*} category is the id of the div in which the element is dropped.
+ * @returns 
+ */
+function ifsForDrop(category){
+    let currentCategory = data[currentDrag]['category'];
+    if (category == 'delete') {
+        deleteTicket(currentDrag);
+        updateHTML();
+        return;
+    }
+    else if(category == 'archive' && currentCategory !== "trash"){
+        setNewVar()
+    }
+    else if (category == 'trash' && currentCategory !== "archive") {
+        setNewVar();
+    }
+
+}
+
+function setNewVar(){        
+data[currentDrag]["oldCategory"] = data[currentDrag]["category"];
+}
+
+function restore(){
+    let nextCategory = data[currentDrag]["oldCategory"];
+drop(nextCategory);
+
+}
 /**
  * opens Modal to edit assignment
  * 
@@ -177,7 +209,8 @@ function newContent(title, content, priority,) {
         "category": "backlog",
         "timestamp": time,
         "priority": priority.value,
-        "assigned": 'unassigned'
+        "assigned": 'unassigned',
+        "oldCategory": ""
     }
     data.push(newContent);
     setBackContent();
