@@ -59,7 +59,7 @@ main {
 
 .board-element {
     margin-top: 16px;
-    width: 100%;
+    width: 280px;
     height: 650px;
 }
 
@@ -83,7 +83,7 @@ main {
 }
 
 .sub-card {
-    width:100%;
+    width:240px;
     cursor: pointer;
     margin-bottom: 4px;
 }
@@ -119,4 +119,10 @@ main {
 
 .offcanvas.offcanvas-end {
     width: 80% !important;
+}
+
+.offset-wrap{
+    display: flex;
+    flex-wrap: wrap;
+    gap:4px;
 }

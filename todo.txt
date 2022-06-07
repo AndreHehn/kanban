@@ -1,10 +1,7 @@
 /**
  * 
- * backlog braucht noch ticket -> to do
  * 
  * on drop in offset zu card machen
- * 
- * in archive trash und backlog ondrop gestalten mittels card element
  * 
  * 
  * Erstellungsdatum hinzufügen

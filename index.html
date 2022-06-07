@@ -97,9 +97,9 @@
                 </div>
 
                 <div href="#offcanvasTrash" class="card nav-card change-background-greyish"
-                    ondrop="drop('trash'); endarkenOff('trashDiv')" id="trashDiv" 
-                    ondragleave="endarkenOff('trashDiv')" ondragover="allowDrop(event); endarken('trashDiv')" 
-                    data-bs-toggle="offcanvas" data-bs-target="#offcanvasTrash" aria-controls="offcanvasTrash">
+                    ondrop="drop('trash'); endarkenOff('trashDiv')" id="trashDiv" ondragleave="endarkenOff('trashDiv')"
+                    ondragover="allowDrop(event); endarken('trashDiv')" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasTrash" aria-controls="offcanvasTrash">
                     <h5 class="card-title center-title">trash</h5>
                     <div class="card-body element-content">
 
@@ -160,7 +160,13 @@
                 data-bs-target="#changeContent" onclick="pushValueToModal()">
                 +
             </button>
-            <div id="backlog" class=""></div>
+            <div id="backlog" class="offset-wrap"></div>
+            <div class="" ondrop="drop('trash'); endarkenOff('backlogTrashDiv')" id="backlogTrashDiv"
+                ondragleave="endarkenOff('backlogTrashDiv')" ondragover="allowDrop(event); endarken('backlogTrashDiv')"
+                id="backlogTrash">delete</div>
+            <div class="" ondrop="drop('todo'); endarkenOff('backlogOffDiv')" id="backlogOffDiv"
+                ondragleave="endarkenOff('backlogOffDiv')"
+                ondragover="allowDrop(event); endarken('backlogOffDiv')" id="backlogOff">todo</div>
         </div>
     </div>
 
@@ -170,7 +176,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-            <div id="archive" class=""></div>
+            <div id="archive" class="offset-wrap"></div>
             <div class="" ondrop="drop('trash'); endarkenOff('archiveTrashDiv')" id="archiveTrashDiv"
                 ondragleave="endarkenOff('archiveTrashDiv')" ondragover="allowDrop(event); endarken('archiveTrashDiv')"
                 id="archiveTrash">delete</div>
@@ -186,7 +192,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-            <div id="trash" class=""></div>
+            <div id="trash" class="offset-wrap"></div>
             <div class="" ondrop="drop('delete'); endarkenOff('deleteDiv')" id="deleteDiv"
                 ondragleave="endarkenOff('deleteDiv')" ondragover="allowDrop(event); endarken('deleteDiv')" id="delete">
                 delete</div>

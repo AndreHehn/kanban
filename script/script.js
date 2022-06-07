@@ -98,9 +98,9 @@ function ifsForDrop(category, currentCategory, amountCategory){
     if ((category == 'todo' || category == 'progress' || category == 'testing' || category == 'done') && amountCategory < maxTickets) {
         doDrop(category);
     }
+    else if ( category == 'backlog'){doDrop(category);}
     else if (category == 'delete') {
         deleteTicket(currentDrag);
-
     }
     else if (category == 'archive' && currentCategory !== "trash") {
         setNewVar();
