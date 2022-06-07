@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    background-color: rgb(103, 158, 117);
 }
 
 main {
@@ -24,24 +25,38 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-color: rgb(103, 158, 117) !important;
 }
 
 .nav-card {
     height: 180px;
     text-decoration: none;
-    color:black;
+    color: black;
+
 }
 
 .nav-card :hover {
     text-decoration: none;
-    color:black;
+    color: black;
 }
 
+.center-title {
+    margin-top:4px;
+    text-align: center;
+}
+
+.element-content {
+    background-color: white;
+}
+
+.change-background-greyish {
+    background-color: rgb(167, 167, 167);
+}
 
 .board-element {
     margin-top: 16px;
     width: 280px;
-    height: 700px;
+    height: 650px;
 }
 
 .element-headline {
@@ -72,7 +87,7 @@ main {
 }
 
 .drag-over {
-    background-color: rgba(150, 150, 150, 0.1);
+    filter: brightness(90%) saturate(120%);
 }
 
 .priorityhigh {
