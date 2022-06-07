@@ -2,13 +2,12 @@
  * 
  * backlog braucht noch ticket -> to do
  * 
- * on drop info text
+ * on drop in offset zu card machen
  * 
  * in archive trash und backlog ondrop gestalten mittels card element
  * 
  * 
  * Erstellungsdatum hinzufügen
- * 
  * 
  * Deadline hinzufügen
  * 
@@ -17,10 +16,11 @@
  * 
  * 
  * ticket umgestalten:  Button, der zusätzliche infos anzeigt. evtl über collapse, weiteres modal, popover
- * maximal länge prüfen bei category .... 3 -5 tickets maximal
+ *
  * 
  * einstellungs button evtl  ( category max define)
  * 
+ *
  * responsive machen
  * 
  */

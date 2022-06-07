@@ -62,8 +62,7 @@ function allowDrop(ev) {
  * 
  * @param {*} category is the id of the div in which the element is dropped.
  */
-function drop(category) {
-    ifsForDrop(category);
+function doDrop(category) {
     let time = new Date().getTime();
     data[currentDrag]['category'] = category;
     data[currentDrag]['timestamp'] = time;
@@ -72,34 +71,57 @@ function drop(category) {
 }
 
 /**
- * checks the category and says what to do with the "special" categories.
+ * defines what happes after drop.
  * 
  * @param {*} category is the id of the div in which the element is dropped.
  * @returns 
  */
-function ifsForDrop(category){
+function drop(category) {
     let currentCategory = data[currentDrag]['category'];
-    if (category == 'delete') {
-        deleteTicket(currentDrag);
-        updateHTML();
-        return;
+    let amountCategory = 0;
+    for (let i = 0; i < data.length; i++) {
+        if (data[i]['category'] == category) {
+            amountCategory++;
+        }
     }
-    else if(category == 'archive' && currentCategory !== "trash"){
-        setNewVar()
+    ifsForDrop(category, currentCategory, amountCategory);
+}
+
+
+/**
+ * 
+ * @param {*} category is the id of the div in which the element is dropped.
+ * @param {*} currentCategory is the id of the div from which the element is dropped.
+ * @param {*} amountCategory is the amount of tickets the card has.
+ */
+function ifsForDrop(category, currentCategory, amountCategory){
+    if ((category == 'todo' || category == 'progress' || category == 'testing' || category == 'done') && amountCategory < maxTickets) {
+        doDrop(category);
+    }
+    else if (category == 'delete') {
+        deleteTicket(currentDrag);
+
+    }
+    else if (category == 'archive' && currentCategory !== "trash") {
+        setNewVar();
+        doDrop(category);
     }
     else if (category == 'trash' && currentCategory !== "archive") {
         setNewVar();
+        doDrop(category);
     }
-
 }
 
-function setNewVar(){        
-data[currentDrag]["oldCategory"] = data[currentDrag]["category"];
+/**
+ * pushes value to key oldCategory.
+ */
+function setNewVar() {
+    data[currentDrag]["oldCategory"] = data[currentDrag]["category"];
 }
 
-function restore(){
+function restore() {
     let nextCategory = data[currentDrag]["oldCategory"];
-drop(nextCategory);
+    drop(nextCategory);
 
 }
 /**
@@ -270,8 +292,8 @@ function endarkenOff(id) {
     document.getElementById(id).classList.remove('drag-over');
 }
 
-function showInfo(id){
-// content (deadline, created on)
+function showInfo(id) {
+    // content (deadline, created on)
 
 
 }
