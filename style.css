@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background-color: rgb(103, 158, 117);
+    background-color: rgb(145, 182, 154);
 }
 
 main {
@@ -27,7 +27,7 @@ main {
     flex-direction: column;
     justify-content: space-between;
     gap: 32px;
-    background-color: rgb(103, 158, 117) !important;
+    background-color: rgb(145, 182, 154) !important;
 }
 
 .nav-card {

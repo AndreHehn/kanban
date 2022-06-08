@@ -84,6 +84,7 @@ function restore() {
         document.getElementById('labelPriority').classList.add('d-none');
         document.getElementById('changePriority').classList.add('d-none');
         document.getElementById('modalContent').classList.add('d-none');
+        document.getElementById('closebutton').classList.add('d-none');
         document.getElementById('changeButton').setAttribute('onclick', `saveTicket('assign'+${currentDrag})`);
         let myModal = new bootstrap.Modal(document.getElementById("changeContent"), {});
         myModal.toggle();
@@ -105,6 +106,7 @@ function restore() {
     document.getElementById('labelPriority').classList.remove('d-none');
     document.getElementById('changePriority').classList.remove('d-none');
     document.getElementById('modalContent').classList.remove('d-none');
+    document.getElementById('closebutton').classList.remove('d-none');
 }
 
 function moveToTrash(id) {

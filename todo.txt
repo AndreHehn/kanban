@@ -1,9 +1,9 @@
 /**
  * trash delete info after drop: that deletes the file irrevocably.
-
- 
+ *
+ *
  * on drop in offset zu card machen
- * 
+ *
  * 
  * Erstellungsdatum hinzufügen
  * 
@@ -20,5 +20,7 @@
  * 
  *
  * responsive machen
+*** idee oben als scrollbar von links nach rechts kleine card die anklickbar und in denen gedroppt werden kann
+unten dann die geöffnete kategorie
  * 
  */
