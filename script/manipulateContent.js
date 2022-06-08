@@ -4,7 +4,7 @@
  * @param {*} category is the id of the div in which the element is dropped.
  * @returns 
  */
- function drop(category) {
+function drop(category) {
     let currentCategory = data[currentDrag]['category'];
     let amountCategory = 0;
     for (let i = 0; i < data.length; i++) {
@@ -25,7 +25,9 @@ function ifsForDrop(category, currentCategory, amountCategory) {
     if ((category == 'todo' || category == 'progress' || category == 'testing' || category == 'done') && amountCategory < maxTickets) {
         doDrop(category);
     }
-    else if (category == 'backlog') { doDrop(category); }
+    else if ((category == 'backlog')||(category == 'archive' && currentCategory == "trash" )|| (category == 'trash' && currentCategory == "archive")) {
+        doDrop(category);
+    }
     else if (category == 'delete') {
         deleteTicket(currentDrag);
     }
@@ -45,7 +47,7 @@ function ifsForDrop(category, currentCategory, amountCategory) {
  * 
  * @param {*} category is the id of the div in which the element is dropped.
  */
- function doDrop(category) {
+function doDrop(category) {
     let time = new Date().getTime();
     data[currentDrag]['category'] = category;
     data[currentDrag]['timestamp'] = time;
@@ -75,7 +77,7 @@ function restore() {
  * 
  * @param {*} category tells which category the ticket is beeing dropped
  */
- function openModal(category) {
+function openModal(category) {
     if (category == 'backlog' || category == 'todo') {
         data[currentDrag]['assigned'] = 'unassigned';
     }
@@ -95,7 +97,7 @@ function restore() {
  * sets back value of Modal to default.
  * 
  */
- function setBackContent() {
+function setBackContent() {
     document.getElementById('changeTitle').value = ``;
     document.getElementById('changeInnerContent').value = ``;
     document.getElementById('changeAssigned').value = `unassigned`;
@@ -106,7 +108,7 @@ function restore() {
     document.getElementById('labelPriority').classList.remove('d-none');
     document.getElementById('changePriority').classList.remove('d-none');
     document.getElementById('modalContent').classList.remove('d-none');
-    document.getElementById('closebutton').classList.remove('d-none');
+    document.getElementById('closebutton').classList.add('d-none');
 }
 
 function moveToTrash(id) {
@@ -187,7 +189,7 @@ function ifForSaveTicket(title, content, priority, assigned, id) {
  * @param {*} priority 
  * @param {*} assigned document.getElementbyID....
  */
- function editContent(title, content, priority, assigned, id) {
+function editContent(title, content, priority, assigned, id) {
     data[id]['title'] = title.value;
     data[id]['content'] = content.value;
     data[id]['priority'] = priority.value;
