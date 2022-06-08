@@ -22,10 +22,9 @@ function drop(category) {
  * @param {*} amountCategory is the amount of tickets the card has.
  */
 function ifsForDrop(category, currentCategory, amountCategory) {
-    if ((category == 'todo' || category == 'progress' || category == 'testing' || category == 'done') && amountCategory < maxTickets) {
-        doDrop(category);
-    }
-    else if ((category == 'backlog')||(category == 'archive' && currentCategory == "trash" )|| (category == 'trash' && currentCategory == "archive")) {
+    if (((category == 'todo' || category == 'progress' || category == 'testing' || category == 'done') && amountCategory < maxTickets)
+        || (category == 'backlog') || (category == 'archive' && currentCategory == "trash")
+        || (category == 'trash' && currentCategory == "archive")) {
         doDrop(category);
     }
     else if (category == 'delete') {
