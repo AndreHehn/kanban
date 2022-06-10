@@ -137,6 +137,7 @@ function pushValueToModal(id) {
         document.getElementById('changeInnerContent').value = `${data[id]['content']}`;
         document.getElementById('changePriority').value = `${data[id]['priority']}`;
         document.getElementById('changeAssigned').value = `${data[id]['assigned']}`;
+        document.getElementById('closebutton').classList.add('d-none');
     }
     else {
         document.getElementById('labelAssigned').classList.add('d-none');
@@ -170,14 +171,17 @@ function ifForSaveTicket(title, content, priority, assigned, id) {
     if (id == undefined) {
         newContent(title, content, priority);
     }
-    else if (id.includes('assign')) {
-        data[currentDrag]['assigned'] = assigned.value;
+    else if(typeof id == "number" ){
+        editContent(title, content, priority, assigned, id);
         setBackContent();
         updateHTML();
     }
     else {
-        editContent(title, content, priority, assigned, id);
+        data[currentDrag]['assigned'] = assigned.value;
+        setBackContent();
+        updateHTML();
     }
+
 }
 
 /**
@@ -197,5 +201,4 @@ function editContent(title, content, priority, assigned, id) {
     document.getElementById('changeInnerContent').value = ``;
     document.getElementById('changeAssigned').value = `unassigned`;
     document.getElementById('changePriority').value = `low`;
-    updateHTML();
 }
