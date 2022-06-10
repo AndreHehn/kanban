@@ -107,7 +107,7 @@ function setBackContent() {
     document.getElementById('labelPriority').classList.remove('d-none');
     document.getElementById('changePriority').classList.remove('d-none');
     document.getElementById('modalContent').classList.remove('d-none');
-    document.getElementById('closebutton').classList.add('d-none');
+    document.getElementById('closebutton').classList.remove('d-none');
 }
 
 function moveToTrash(id) {
