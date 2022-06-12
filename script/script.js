@@ -1,3 +1,12 @@
+function init() {
+    loadFromLocal();
+    if(data){
+    updateHTML();
+    }
+
+}
+
+
 /**
  * Reads the JSON-array data and renders the elements in the according div.
  */
@@ -15,6 +24,7 @@ function updateHTML() {
             document.getElementById(category).innerHTML += generateHtml(element, id);
         }
     }
+    saveToLocal();
 }
 
 /**
@@ -71,7 +81,30 @@ function endarkenOff(id) {
  * 
  * if collapse is open and is clicked on window, the collapse closes.
  */
- window.addEventListener('click', function () {
+window.addEventListener('click', function () {
     if (temporaryId !== undefined) {
         document.getElementById('collapse' + temporaryId).classList.remove('show');
-    };})
+    };
+})
+
+
+
+
+/**
+ * save to local storage.
+ */
+function saveToLocal() {
+    let dataToText = JSON.stringify(data);
+    localStorage.setItem('data', dataToText);
+
+}
+
+/**
+ * loads from local storage.
+ */
+function loadFromLocal() {
+    let textToData = localStorage.getItem('data');
+    if( textToData){    data = JSON.parse(textToData);}
+
+}
+

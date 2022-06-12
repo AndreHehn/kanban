@@ -1,7 +1,7 @@
 
 
 let data = [
-    {
+   /* {
         "title": "test1",
         "content": "blablabla1",
         "category": "backlog",
@@ -45,7 +45,7 @@ let data = [
         "priority": "high",
         "assigned": "unassigned",
         "oldCategory": ""
-    }
+    }*/
 ];
 
 let categories = ['backlog', 'todo', 'progress', 'testing', 'done', 'archive', 'trash'];
