@@ -9,7 +9,7 @@
     <div class="card sub-card" draggable="true" ondragstart="startDrag(${id})" id="${id}">
     <div class="card-body">
         <h5 class="card-title priority${element['priority']}"> ${element['title']}</h5>
-        <p class="card-text"> Assigned to: ${element['assigned']}</p>
+        <p class="card-text"> <i>assigned to:</i> ${element['assigned']}</p>
         <div class="ticket-buttons">
             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changeContent"
                 onclick="pushValueToModal(${id})">edit</button>
@@ -22,7 +22,7 @@
     <div style="z-index:1;">
         <div class="collapse" id="collapse${id}">
             <div class="card card-body">
-            ${element['content']}
+            <span><i>descripton:</i></span><span>${element['content']}</span>
             </div>
         </div>
     </div>

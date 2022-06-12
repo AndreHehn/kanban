@@ -1,22 +1,6 @@
 /**
- * trash delete info after drop: that deletes the file irrevocably.
- *
- *
- * on drop in offset zu card machen
- *
- * 
- * Erstellungsdatum hinzufügen
- * 
- * Deadline hinzufügen
- * 
  * 
  * evtl localstorage
- * 
- * 
- *content collapse umgestalten wenn deadline und erstellungsdatum hinzugefügt
- *
- * 
- * einstellungs button evtl  ( category max define)
  * 
  *
  * responsive machen

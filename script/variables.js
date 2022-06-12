@@ -12,7 +12,7 @@ let data = [
     },
     {
         "title": "test2",
-        "content": "blablabla2",
+        "content": "b2",
         "category": "todo",
         "timestamp": 0,
         "priority": "high",

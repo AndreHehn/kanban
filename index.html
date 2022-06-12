@@ -159,12 +159,14 @@
                 +
             </button>
             <div id="backlog" class="offset-wrap"></div>
-            <div class="" ondrop="drop('trash'); endarkenOff('backlogTrashDiv')" id="backlogTrashDiv"
-                ondragleave="endarkenOff('backlogTrashDiv')" ondragover="allowDrop(event); endarken('backlogTrashDiv')"
-                id="backlogTrash">delete</div>
-            <div class="" ondrop="drop('todo'); endarkenOff('backlogOffDiv')" id="backlogOffDiv"
-                ondragleave="endarkenOff('backlogOffDiv')" ondragover="allowDrop(event); endarken('backlogOffDiv')"
-                id="backlogOff">todo</div>
+            <div class="offcanvas-wrapper-drop">
+                <div class="card dropzone" ondrop="drop('trash'); endarkenOff('backlogTrashDiv')" id="backlogTrashDiv"
+                    ondragleave="endarkenOff('backlogTrashDiv')"
+                    ondragover="allowDrop(event); endarken('backlogTrashDiv')" id="backlogTrash">drop here to move to trash</div>
+                <div class="card dropzone" ondrop="drop('todo'); endarkenOff('backlogOffDiv')" id="backlogOffDiv"
+                    ondragleave="endarkenOff('backlogOffDiv')" ondragover="allowDrop(event); endarken('backlogOffDiv')"
+                    id="backlogOff">drop here to show on board</div>
+            </div>
         </div>
     </div>
 
@@ -175,12 +177,14 @@
         </div>
         <div class="offcanvas-body">
             <div id="archive" class="offset-wrap"></div>
-            <div class="" ondrop="drop('trash'); endarkenOff('archiveTrashDiv')" id="archiveTrashDiv"
-                ondragleave="endarkenOff('archiveTrashDiv')" ondragover="allowDrop(event); endarken('archiveTrashDiv')"
-                id="archiveTrash">trash</div>
-            <div class="" ondrop="restore(); endarkenOff('archiveRestoreDiv')" id="archiveRestoreDiv"
-                ondragleave="endarkenOff('archiveRestoreDiv')"
-                ondragover="allowDrop(event); endarken('archiveRestoreDiv')" id="archiveRestore">restore</div>
+            <div class="offcanvas-wrapper-drop">
+                <div class="card dropzone" ondrop="drop('trash'); endarkenOff('archiveTrashDiv')" id="archiveTrashDiv"
+                    ondragleave="endarkenOff('archiveTrashDiv')"
+                    ondragover="allowDrop(event); endarken('archiveTrashDiv')" id="archiveTrash">drop here to move to trash</div>
+                <div class="card dropzone" ondrop="restore(); endarkenOff('archiveRestoreDiv')" id="archiveRestoreDiv"
+                    ondragleave="endarkenOff('archiveRestoreDiv')"
+                    ondragover="allowDrop(event); endarken('archiveRestoreDiv')" id="archiveRestore">drop here to restore</div>
+            </div>
         </div>
     </div>
 
@@ -191,15 +195,17 @@
         </div>
         <div class="offcanvas-body">
             <div id="trash" class="offset-wrap"></div>
-            <div class="" ondrop="drop('delete'); endarkenOff('deleteDiv')" id="deleteDiv"
-                ondragleave="endarkenOff('deleteDiv')" ondragover="allowDrop(event); endarken('deleteDiv')" id="delete">
-                delete</div>
-            <div class="" ondrop="restore(); endarkenOff('restoreDiv')" id="restoreDiv"
-                ondragleave="endarkenOff('restoreDiv')" ondragover="allowDrop(event); endarken('restoreDiv')"
-                id="restore">restore</div>
-            <div class="" ondrop="drop('archive'); endarkenOff('trashArchiveDiv')" id="trashArchiveDiv"
-                ondragleave="endarkenOff('trashArchiveDiv')" ondragover="allowDrop(event); endarken('trashArchiveDiv')"
-                id="trashArchive">archive</div>
+            <div class="offcanvas-wrapper-drop">
+                <div class="card dropzone deleting" ondrop="drop('delete'); endarkenOff('deleteDiv')" id="deleteDiv"
+                    ondragleave="endarkenOff('deleteDiv')" ondragover="allowDrop(event); endarken('deleteDiv')"
+                    id="delete">drop her to delete irrevocably</div>
+                <div class="card dropzone" ondrop="restore(); endarkenOff('restoreDiv')" id="restoreDiv"
+                    ondragleave="endarkenOff('restoreDiv')" ondragover="allowDrop(event); endarken('restoreDiv')"
+                    id="restore">drop her to restore</div>
+                <div class="card dropzone" ondrop="drop('archive'); endarkenOff('trashArchiveDiv')" id="trashArchiveDiv"
+                    ondragleave="endarkenOff('trashArchiveDiv')"
+                    ondragover="allowDrop(event); endarken('trashArchiveDiv')" id="trashArchive">drop here to archive</div>
+            </div>
         </div>
     </div>
 

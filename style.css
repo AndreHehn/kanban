@@ -80,7 +80,18 @@ main {
 .backlog-button {
     position: absolute;
     top: 8px;
-    right: 16px;
+    left: 217px;
+}
+
+.offcanvas-wrapper-drop {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+}
+
+.dropzone {
+    margin-top: 32px;
+    padding: 16px;
 }
 
 .ticket-buttons {
