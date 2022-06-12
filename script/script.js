@@ -96,7 +96,6 @@ window.addEventListener('click', function () {
 function saveToLocal() {
     let dataToText = JSON.stringify(data);
     localStorage.setItem('data', dataToText);
-
 }
 
 /**
@@ -105,6 +104,5 @@ function saveToLocal() {
 function loadFromLocal() {
     let textToData = localStorage.getItem('data');
     if( textToData){    data = JSON.parse(textToData);}
-
 }
 

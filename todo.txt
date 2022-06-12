@@ -4,4 +4,9 @@
 *** idee oben als scrollbar von links nach rechts kleine card die anklickbar und in denen gedroppt werden kann
 unten dann die geöffnete kategorie
  * 
+
+// @media (pointer: coarse)
+
+
+
  */
