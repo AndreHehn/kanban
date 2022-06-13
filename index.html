@@ -71,6 +71,7 @@
         </div>
 
         <div class="kanban-board">
+
             <div class="card board-element border-0 nav" id="nav">
 
                 <div href="#offcanvasBacklog" class="card nav-card change-background-greyish"
@@ -78,9 +79,9 @@
                     ondragleave="endarkenOff('backlogDiv')" ondragover="allowDrop(event); endarken('backlogDiv')"
                     data-bs-toggle="offcanvas" data-bs-target="#offcanvasBacklog" aria-controls="offcanvasBacklog">
                     <h5 class="card-title center-title">backlog</h5>
-                    <div class="card-body element-content">
+                    <div class="card-body element-content small">
 
-                        <span>Click on me to show backlog.</span><br>
+                        <span>Click on me to show backlog and to create new tasks.</span>
                         <span>Drop ticket to move it back to backlog.</span>
                     </div>
                 </div>
@@ -91,9 +92,9 @@
                     ondragleave="endarkenOff('archiveDiv')" ondragover="allowDrop(event); endarken('archiveDiv')"
                     data-bs-toggle="offcanvas" data-bs-target="#offcanvasArchive" aria-controls="offcanvasArchive">
                     <h5 class="card-title center-title">archive</h5>
-                    <div class="card-body element-content">
+                    <div class="card-body element-content small">
 
-                        <span>Click on me to show archive.</span><br>
+                        <span>Click on me to show archive.</span>
                         <span>Drop ticket to move it to archive.</span>
                     </div>
                 </div>
@@ -103,46 +104,49 @@
                     ondragover="allowDrop(event); endarken('trashDiv')" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasTrash" aria-controls="offcanvasTrash">
                     <h5 class="card-title center-title">trash</h5>
-                    <div class="card-body element-content">
+                    <div class="card-body element-content small">
 
-                        <span>Click on me to show trash.</span><br>
+                        <span>Click on me to show trash.</span>
                         <span>Drop ticket to move it to trash.</span>
                     </div>
                 </div>
             </div>
 
-            <div class="card board-element change-background-greyish" ondrop="drop('todo'); endarkenOff('todoDiv')"
-                id="todoDiv" ondragleave="endarkenOff('todoDiv')" ondragover="allowDrop(event); endarken('todoDiv')">
-                <div class="element-headline">
-                    <h3 class="card-title headline-name">to do</h3>
+            <div class="todo-done">
+                <div class="card board-element change-background-greyish" ondrop="drop('todo'); endarkenOff('todoDiv')"
+                    id="todoDiv" ondragleave="endarkenOff('todoDiv')"
+                    ondragover="allowDrop(event); endarken('todoDiv')">
+                    <div class="element-headline">
+                        <h3 class="card-title headline-name">to do</h3>
+                    </div>
+                    <div class="card-body element-content" id="todo"></div>
                 </div>
-                <div class="card-body element-content" id="todo"></div>
-            </div>
 
-            <div class="card board-element change-background-greyish"
-                ondrop="drop('progress'); endarkenOff('progressDiv')" id="progressDiv"
-                ondragleave="endarkenOff('progressDiv')" ondragover="allowDrop(event); endarken('progressDiv')">
-                <div class="element-headline">
-                    <h3 class=" card-title headline-name">in progress</h3>
+                <div class="card board-element change-background-greyish"
+                    ondrop="drop('progress'); endarkenOff('progressDiv')" id="progressDiv"
+                    ondragleave="endarkenOff('progressDiv')" ondragover="allowDrop(event); endarken('progressDiv')">
+                    <div class="element-headline">
+                        <h3 class=" card-title headline-name">in progress</h3>
+                    </div>
+                    <div class="card-body element-content" id="progress"></div>
                 </div>
-                <div class="card-body element-content" id="progress"></div>
-            </div>
 
-            <div class="card board-element change-background-greyish"
-                ondrop="drop('testing'); endarkenOff('testingDiv')" id="testingDiv"
-                ondragleave="endarkenOff('testingDiv')" ondragover="allowDrop(event); endarken('testingDiv')">
-                <div class="element-headline">
-                    <h3 class="card-title headline-name">testing</h3>
+                <div class="card board-element change-background-greyish"
+                    ondrop="drop('testing'); endarkenOff('testingDiv')" id="testingDiv"
+                    ondragleave="endarkenOff('testingDiv')" ondragover="allowDrop(event); endarken('testingDiv')">
+                    <div class="element-headline">
+                        <h3 class="card-title headline-name">testing</h3>
+                    </div>
+                    <div class="card-body element-content" id="testing"></div>
                 </div>
-                <div class="card-body element-content" id="testing"></div>
-            </div>
 
-            <div class="card board-element change-background-greyish" ondrop="drop('done'); endarkenOff('doneDiv')"
-                id="doneDiv" ondragleave="endarkenOff('doneDiv')" ondragover="allowDrop(event);endarken('doneDiv')">
-                <div class=" element-headline">
-                    <h3 class="card-title headline-name">done</h3>
+                <div class="card board-element change-background-greyish" ondrop="drop('done'); endarkenOff('doneDiv')"
+                    id="doneDiv" ondragleave="endarkenOff('doneDiv')" ondragover="allowDrop(event);endarken('doneDiv')">
+                    <div class=" element-headline">
+                        <h3 class="card-title headline-name">done</h3>
+                    </div>
+                    <div class="card-body element-content" id="done"></div>
                 </div>
-                <div class="card-body element-content" id="done"></div>
             </div>
         </div>
     </main>
@@ -162,7 +166,8 @@
             <div class="offcanvas-wrapper-drop">
                 <div class="card dropzone" ondrop="drop('trash'); endarkenOff('backlogTrashDiv')" id="backlogTrashDiv"
                     ondragleave="endarkenOff('backlogTrashDiv')"
-                    ondragover="allowDrop(event); endarken('backlogTrashDiv')" id="backlogTrash">drop here to move to trash</div>
+                    ondragover="allowDrop(event); endarken('backlogTrashDiv')" id="backlogTrash">drop here to move to
+                    trash</div>
                 <div class="card dropzone" ondrop="drop('todo'); endarkenOff('backlogOffDiv')" id="backlogOffDiv"
                     ondragleave="endarkenOff('backlogOffDiv')" ondragover="allowDrop(event); endarken('backlogOffDiv')"
                     id="backlogOff">drop here to show on board</div>
@@ -180,10 +185,12 @@
             <div class="offcanvas-wrapper-drop">
                 <div class="card dropzone" ondrop="drop('trash'); endarkenOff('archiveTrashDiv')" id="archiveTrashDiv"
                     ondragleave="endarkenOff('archiveTrashDiv')"
-                    ondragover="allowDrop(event); endarken('archiveTrashDiv')" id="archiveTrash">drop here to move to trash</div>
+                    ondragover="allowDrop(event); endarken('archiveTrashDiv')" id="archiveTrash">drop here to move to
+                    trash</div>
                 <div class="card dropzone" ondrop="restore(); endarkenOff('archiveRestoreDiv')" id="archiveRestoreDiv"
                     ondragleave="endarkenOff('archiveRestoreDiv')"
-                    ondragover="allowDrop(event); endarken('archiveRestoreDiv')" id="archiveRestore">drop here to restore</div>
+                    ondragover="allowDrop(event); endarken('archiveRestoreDiv')" id="archiveRestore">drop here to
+                    restore</div>
             </div>
         </div>
     </div>
@@ -204,7 +211,8 @@
                     id="restore">drop her to restore</div>
                 <div class="card dropzone" ondrop="drop('archive'); endarkenOff('trashArchiveDiv')" id="trashArchiveDiv"
                     ondragleave="endarkenOff('trashArchiveDiv')"
-                    ondragover="allowDrop(event); endarken('trashArchiveDiv')" id="trashArchive">drop here to archive</div>
+                    ondragover="allowDrop(event); endarken('trashArchiveDiv')" id="trashArchive">drop here to archive
+                </div>
             </div>
         </div>
     </div>

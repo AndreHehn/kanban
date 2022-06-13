@@ -22,6 +22,13 @@ main {
     height: 100%;
 }
 
+.todo-done {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 32px;
+}
+
 .nav {
     display: flex;
     flex-direction: column;
@@ -153,4 +160,130 @@ main {
     -webkit-transition: none;
     transition: none;
     display: none;
+}
+
+@media (pointer: coarse) {
+
+    /*nur bei touchscreen*/
+}
+
+@media(max-width:1600px) {
+
+    .kanban-board {
+        margin-top: 24px;
+        flex-direction: column-reverse;
+    }
+
+    .nav-card {
+        width: 300px;
+    }
+
+    .nav {
+
+        height: 135px !important;
+        width: 100% !important;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 32px;
+    }
+
+}
+
+@media(max-width:1300px) {
+
+    .sub-card {
+        width: 200px;
+        max-height: 142px;
+        cursor: pointer;
+        margin-bottom: 16px;
+    }
+
+    .board-element {
+
+        width: 232px;
+    }
+}
+
+@media(max-width:1300px) {
+
+    .sub-card {
+        width: 200px;
+        max-height: 142px;
+        cursor: pointer;
+        margin-bottom: 16px;
+    }
+
+    .board-element {
+        width: 232px;
+    }
+}
+
+@media(max-width:1100px) {
+
+    .kanban-board{
+        gap:8px;
+    }
+    .sub-card {
+        margin-bottom: 0;
+    }
+
+    .todo-done {
+        display: flex;
+        flex-direction: column;
+        gap:8px;
+    }
+
+    .board-element {
+        margin: 0;
+        width: fit-content;
+        height: fit-content;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .element-content {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0.375rem;
+        border-top-right-radius: 0.375rem;
+        width: 650px;
+        height: 174px;
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        padding-top: 16px;
+    }
+
+    .element-headline {
+        width: 54px;
+    }
+
+    .headline-name {
+        margin-left: -56px;
+        margin-top: 44px;
+        width: 200px;
+        height: 72px;
+        transform: rotate(-90deg);
+    }
+
+    .nav {
+        gap: 16px;
+        margin-bottom: 32px;
+    }
+
+    .small {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        border-bottom-left-radius: 0.375rem;
+        border-bottom-right-radius: 0.375rem;
+        border-top-right-radius: 0;
+    }
+
+    .nav-card {
+        width: 220px;
+        height: 150px;
+    }
+
 }
