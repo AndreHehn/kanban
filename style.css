@@ -180,7 +180,7 @@ main {
 
     .nav {
 
-        height: 135px !important;
+        height: 135px ;
         width: 100% !important;
         flex-direction: row;
         justify-content: space-between;
@@ -199,30 +199,18 @@ main {
     }
 
     .board-element {
-
         width: 232px;
     }
+
 }
 
-@media(max-width:1300px) {
-
-    .sub-card {
-        width: 200px;
-        max-height: 142px;
-        cursor: pointer;
-        margin-bottom: 16px;
-    }
-
-    .board-element {
-        width: 232px;
-    }
-}
 
 @media(max-width:1100px) {
 
-    .kanban-board{
-        gap:8px;
+    .kanban-board {
+        gap: 8px;
     }
+
     .sub-card {
         margin-bottom: 0;
     }
@@ -230,7 +218,7 @@ main {
     .todo-done {
         display: flex;
         flex-direction: column;
-        gap:8px;
+        gap: 8px;
     }
 
     .board-element {
@@ -286,4 +274,57 @@ main {
         height: 150px;
     }
 
+}
+
+@media(max-width:730px) {
+
+
+    .board-element {
+        flex-direction: column !important;
+        width: 230px;
+        height: 540px;
+    }
+
+    .headline-name {
+        margin-left: 0px;
+        margin-top: 0px;
+        width: 230px;
+        height: 36px;
+        transform: rotate(0deg);
+    }
+
+    .element-headline {
+        width: 240px;
+    }
+
+    .element-content {
+        width: 230px;
+        flex-direction: column;
+        border-bottom-left-radius: 0.375rem;
+        border-bottom-right-radius: 0.375rem;
+        border-top-right-radius: 0;
+    }
+
+    .todo-done {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap:16px;
+    }
+
+    .nav-card {
+        width: 230px;
+
+    }
+
+    .small {
+
+        width: 230px !important;
+ 
+    }
+    .nav{
+        align-items: center;
+        flex-wrap: wrap;
+        height: auto;
+    }
 }
