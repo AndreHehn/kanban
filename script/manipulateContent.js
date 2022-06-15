@@ -202,3 +202,20 @@ function editContent(title, content, priority, assigned, id) {
     document.getElementById('changeAssigned').value = `unassigned`;
     document.getElementById('changePriority').value = `low`;
 }
+
+/**
+ * on touchscreen this button sends the ticket to the next board
+ * 
+ * @param {*} id tells which ticket
+ */
+function sendToNext( id) {
+    let cat = data[id]['category'];
+    let catId = categories.indexOf(cat);
+    catId++;
+    console.log(catId);
+    if (catId < categories.length) {
+        let nextCat = categories[catId];
+        data[id]['category'] = nextCat;
+        updateHTML();
+    }
+}

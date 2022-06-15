@@ -89,6 +89,10 @@ main {
     top: 8px;
     left: 217px;
 }
+.arrow-button{
+    display: none;
+    padding: 2px;
+}
 
 .offcanvas-wrapper-drop {
     display: flex;
@@ -328,3 +332,11 @@ main {
         height: auto;
     }
 }
+
+@media (pointer: coarse){
+    .arrow-button{
+    display: block;
+    }
+    .dropzone {display:none;}
+}
+
