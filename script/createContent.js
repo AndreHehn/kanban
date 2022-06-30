@@ -14,7 +14,7 @@ function generateHtml(element, id) {
             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changeContent"
                 onclick="pushValueToModal(${id})">edit</button> 
                <button class="btn btn-primary arrow-button" 
-                onclick="sendToNext(${id})"><img src="./img/toNext.png"></button>
+                onclick="sendToNext(${id})">&nbsp;<img class="make-white" src="./img/toNext.png">&nbsp;</button>
             <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapse${id}"
                 aria-expanded="false" aria-controls="collapseWidthExample" onclick="scrollToBottom(${id})">
                 more
@@ -24,7 +24,7 @@ function generateHtml(element, id) {
     <div style="z-index:1;">
         <div class="collapse" id="collapse${id}">
             <div class="card card-body">
-            <span><i>descripton:</i></span><span>${element['content']}</span>
+            <span><i>description:</i></span><span>${element['content']}</span>
             </div>
         </div>
     </div>

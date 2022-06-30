@@ -89,7 +89,8 @@ main {
     top: 8px;
     left: 217px;
 }
-.arrow-button{
+
+.arrow-button {
     display: none;
     padding: 2px;
 }
@@ -166,6 +167,12 @@ main {
     display: none;
 }
 
+.make-white {
+    height: 1.5rem;
+    width: 1.5rem;
+    filter: invert(99%) sepia(1%) saturate(2454%) hue-rotate(92deg) brightness(115%) contrast(100%);
+}
+
 @media (pointer: coarse) {
 
     /*nur bei touchscreen*/
@@ -184,7 +191,7 @@ main {
 
     .nav {
 
-        height: 135px ;
+        height: 135px;
         width: 100% !important;
         flex-direction: row;
         justify-content: space-between;
@@ -313,7 +320,7 @@ main {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        gap:16px;
+        gap: 16px;
     }
 
     .nav-card {
@@ -324,19 +331,22 @@ main {
     .small {
 
         width: 230px !important;
- 
+
     }
-    .nav{
+
+    .nav {
         align-items: center;
         flex-wrap: wrap;
         height: auto;
     }
 }
 
-@media (pointer: coarse){
-    .arrow-button{
-    display: block;
+@media (pointer: coarse) {
+    .arrow-button {
+        display: block;
     }
-    .dropzone {display:none;}
-}
 
+    .dropzone {
+        display: none;
+    }
+}
